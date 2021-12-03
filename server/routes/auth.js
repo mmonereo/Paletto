@@ -9,29 +9,13 @@ const saltRounds = 10;
 
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
-const Session = require("../models/Session.model");
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/session", (req, res) => {
-  // we dont want to throw an error, and just maintain the user as null
-  if (!req.headers.authorization) {
-    return res.json(null);
-  }
-
-  // accessToken is being sent on every request in the headers
-  const accessToken = req.headers.authorization;
-
-  Session.findById(accessToken)
-    .populate("user")
-    .then((session) => {
-      if (!session) {
-        return res.status(404).json({ errorMessage: "Session does not exist" });
-      }
-      return res.status(200).json(session);
-    });
+router.get("/loggedin", (req, res) => {
+  res.json(req.user);
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
@@ -80,12 +64,9 @@ router.post("/signup", isLoggedOut, (req, res) => {
         });
       })
       .then((user) => {
-        Session.create({
-          user: user._id,
-          createdAt: Date.now(),
-        }).then((session) => {
-          res.status(201).json({ user, accessToken: session._id });
-        });
+        // Bind the user to the session object
+        req.session.user = user;
+        res.status(201).json(user);
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -132,11 +113,9 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         if (!isSamePassword) {
           return res.status(400).json({ errorMessage: "Wrong credentials." });
         }
-        Session.create({ user: user._id, createdAt: Date.now() }).then(
-          (session) => {
-            return res.json({ user, accessToken: session._id });
-          }
-        );
+        req.session.user = user;
+        // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
+        return res.json(user);
       });
     })
 
@@ -148,15 +127,13 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     });
 });
 
-router.delete("/logout", isLoggedIn, (req, res) => {
-  Session.findByIdAndDelete(req.headers.authorization)
-    .then(() => {
-      res.status(200).json({ message: "User was logged out" });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ errorMessage: err.message });
-    });
+router.get("/logout", isLoggedIn, (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).json({ errorMessage: err.message });
+    }
+    res.json({ message: "Done" });
+  });
 });
 
 module.exports = router;
