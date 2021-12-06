@@ -14,6 +14,17 @@ const paletteSchema = new Schema(
 			//CR maxlength
 		}],
 
+		count: {
+			type: Number,
+			required: true,
+		},
+
+		mode: {
+			type: String,
+			trim: true,
+			required: true,
+		},
+
 		tags: [{
 			type: String,
 			trim: true,
@@ -21,6 +32,7 @@ const paletteSchema = new Schema(
 
 		creator: {
 			type: Schema.Types.ObjectId, ref: "User",
+			required: true,
 		}
 	},
 

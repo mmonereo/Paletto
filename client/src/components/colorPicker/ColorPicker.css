@@ -1,0 +1,20 @@
+.color-picker{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.sample-picker{
+	width: 300px;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	gap: 5px;
+}
+
+.sample-picker span{
+	width: 200px;
+	height: 16px;
+}
