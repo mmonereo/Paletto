@@ -5,11 +5,9 @@ class ColorSchemeService {
 		this.axiosApp = axios.create({
 			baseURL: 'https://www.thecolorapi.com/scheme'
 		})
-		this.mode = mode
-		this.count = count
 	}
 
-	getOneScheme = (hex) => this.axiosApp.get(`?hex=${hex}&format=json&mode=${this.mode}&count=${this.count}`)
+	getOneScheme = (hex, mode, count) => this.axiosApp.get(`?hex=${hex}&format=json&mode=${mode}&count=${count}`)
 }
 
 export default ColorSchemeService

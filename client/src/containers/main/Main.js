@@ -7,14 +7,20 @@ import CellGrid from '../../components/cellGrid/CellGrid';
 
 function Main(){
 
-	const myColorSchemeService = new ColorSchemeService('analogic', '6');
+	const myColorSchemeService = new ColorSchemeService();
 
-	const [colorState, setColorState] = useState("#b32aa9");
+	const [colorState, setColorState] = useState({
+		sourceColor: '#7fb5d8',
+		mode: 'analogic',
+		count: '2',
+		colorScheme: []
+	});
 
 	const [colorScheme, setColorScheme] = useState();
 
 	function requestScheme(){
-		myColorSchemeService.getOneScheme(colorState.substring(1))
+		const {sourceColor, mode, count} = colorState;
+		myColorSchemeService.getOneScheme(sourceColor.substring(1), mode, count)
 			.then(response => {
 				const {colors} = response.data;
 				setColorScheme(colors);
@@ -30,13 +36,18 @@ function Main(){
 	}
 
 	function setPickerColor(color){
-		setColorState(color);
+		setColorState({...colorState, sourceColor: color});
+	}
+
+	function handleChange(e){
+		let { name, value } = e.currentTarget;
+		setColorState({ ...colorState, [name]: value })
 	}
 
 	return(
 		<div className="main-container">
 			<h1>Palleto APP</h1>
-			<ColorPicker color={colorState} setPickerColor={setPickerColor} schemeOnClick={schemeOnClick}/>
+			<ColorPicker color={colorState.sourceColor} setPickerColor={setPickerColor} schemeOnClick={schemeOnClick} handleChange={handleChange}/>
 			<CellGrid colors={colorScheme}/>
 		</div>
 	);
