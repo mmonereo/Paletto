@@ -36,7 +36,7 @@ function Main(){
 
 	return(
 		<div className="main-container">
-			<h1>Palleto APP</h1>
+			<h1>Paletto APP</h1>
 			<ColorContext.Provider value={{colorState, setColorState}}>
 			<NewColorScheme schemeOnClick={schemeOnClick}/>
 			</ColorContext.Provider>

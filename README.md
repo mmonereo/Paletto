@@ -20,7 +20,6 @@
 ## Views
 1. / landing page login etc
 2. /palettes/new color picker and generate palette
-3. /palettes/:component/ changes the component on which the palette is applied
 
 
 
