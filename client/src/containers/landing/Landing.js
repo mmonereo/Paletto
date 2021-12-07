@@ -1,18 +1,46 @@
 import './Landing.css';
-import {Switch, Route} from 'react-router-dom';
+import { useState } from 'react';
 import AuthNav from '../../components/authNav/AuthNav';
-import AuthForm from '../../components/authForm/AuthForm';
+import AuthModal from '../../components/authModal/AuthModal';
 
 
-function Landing(){
-	return(
+function Landing() {
+
+	const [modalState, setModal] = useState({
+		LogIn: false,
+		SignUp: false,
+		email: '',
+		password: ''
+	});
+
+	function showModal(e){
+		const {value} = e.target;
+		setModal({
+			...modalState, [value]: true
+		});
+	}
+
+	function closeModal(e) {
+		const { id } = e.target;
+		setModal({
+			...modalState, email: '', password: '', [id]: false
+		});
+	}
+
+	function handleChange(e) {
+		const { value, name } = e.target;
+		setModal({
+			...modalState, [name]: value
+		});
+	}
+
+	return (
 		<>
-			<AuthNav />
+			<AuthNav showModal={showModal}/>
 			<div className="landing-container">
 				<h1>Welcome</h1>
-
-					<Route path="/login" exact render={(props) => <div>test</div>} />
-					<Route path="/signup" exact render={(props) => <AuthForm {...props} type="signup"/>}/>
+				{modalState.LogIn && <AuthModal type="LogIn" closeModal={closeModal} handleChange={handleChange}/>}
+				{modalState.SignUp && <AuthModal type="SignUp" closeModal={closeModal} handleChange={handleChange}/>}
 			</div>
 		</>
 	);

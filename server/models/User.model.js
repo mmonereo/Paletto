@@ -5,7 +5,6 @@ const userSchema = new Schema(
 		username: {
 			type: String,
 			trim: true,
-			required: true,
 		},
 
 		password: {
@@ -20,7 +19,7 @@ const userSchema = new Schema(
 		email: {
 			type: String,
 			lowercase: true,
-			//required: [true, "email can't be blank"],
+			required: [true, "email can't be blank"],
 			match: [/\S+@\S+\.\S+/, 'email is invalid'],
 			unique: true
 		},

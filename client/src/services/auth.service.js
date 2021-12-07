@@ -8,8 +8,8 @@ class AuthService {
 		})
 	}
 
-	signup = (username, password) => this.axiosApp.post("/signup", { username, password })
-	login = (username, password) => this.axiosApp.post("/login", { username, password })
+	signup = (email, password) => this.axiosApp.post("/signup", { email, password })
+	login = (email, password) => this.axiosApp.post("/login", { email, password })
 	logout = () => this.axiosApp.get("/logout")
 	loggedUser = () => this.axiosApp.get("/loggedin")
 }

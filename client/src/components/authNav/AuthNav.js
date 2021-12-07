@@ -1,20 +1,21 @@
 import './AuthNav.css';
-import {NavLink} from 'react-router-dom';
 
-function AuthNav(props) {
+
+function AuthNav({showModal}) {
 	return (
 		<nav className="auth-nav">
 			<ul className="auth-nav-list">
+
 				<li className="auth-nav-item">
-					<NavLink to="/login" className="auth-nav-link">
-						Login
-					</NavLink>
+					<input type="button" className="auth-nav-link" value="LogIn" onClick={(e)=>showModal(e)}>
+					</input>
 				</li>
+
 				<li className="auth-nav-item">
-					<NavLink to="/signup" className="auth-nav-link">
-						Sign Up
-					</NavLink>
+					<input type="button" className="auth-nav-link" value="SignUp" onClick={(e) => showModal(e)}>
+					</input>
 				</li>
+
 			</ul>
 		</nav>
 	);

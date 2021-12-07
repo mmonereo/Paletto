@@ -28,6 +28,7 @@ const paletteSchema = new Schema(
 		tags: [{
 			type: String,
 			trim: true,
+			//CR maxlength
 		}],
 
 		creator: {

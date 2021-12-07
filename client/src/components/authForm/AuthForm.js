@@ -1,6 +1,9 @@
 import './AuthForm.css';
 
 function AuthForm({type}){
+
+	console.log("en authform")
+
 	return(
 		<div className="auth-form">
 			<div className="auth-form-title">
