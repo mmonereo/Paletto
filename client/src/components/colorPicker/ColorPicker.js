@@ -1,22 +1,31 @@
-
-import { HexColorPicker } from "react-colorful";
 import "./ColorPicker.css";
+import { HexColorPicker } from "react-colorful";
+import { useContext } from "react";
+import { ColorContext } from "../../contexts/ColorContext";
 
-import ColorPickerForm from "../colorPickerForm/ColorPickerForm";
+
 import ColorCell from "../../elements/colorCell/ColorCell";
-import InputScheme from "../../elements/inputScheme/InputScheme";
 
-function ColorPicker({color, setPickerColor, schemeOnClick, handleChange}) {
+
+function ColorPicker() {
+
+	const {colorState, setColorState} = useContext(ColorContext);
+
+	const {sourceColor} = colorState;
+
+	function setPickerColor(color) {
+		setColorState({ ...colorState, sourceColor: color });
+	}
+
 	return (
 		<div className="color-picker">
-			<HexColorPicker color={color} onChange={(color)=>setPickerColor(color)}  />
+			<HexColorPicker color={sourceColor} onChange={(color)=>setPickerColor(color)}  />
 
 			<div className="sample-picker">
-				<ColorCell color={color} />
-				<span>Current color is {color}</span>
+				<ColorCell color={sourceColor} />
+				<span>Current color is {sourceColor}</span>
 			</div>
-			<ColorPickerForm handleChange={handleChange}/>
-			<InputScheme schemeOnClick={schemeOnClick}/>
+
 		</div>
 	);
 }

@@ -1,8 +1,4 @@
 
-.color-picker-form{
-	padding: 10px;
-}
-
 .color-picker-form form{
 	display: flex;
 	flex-direction: column;

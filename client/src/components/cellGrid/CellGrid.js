@@ -1,11 +1,18 @@
 import './CellGrid.css';
 
+import { useContext } from "react";
+import { ColorContext } from "../../contexts/ColorContext";
 import ColorCell from '../../elements/colorCell/ColorCell';
 
-function CellGrid({colors}){
+function CellGrid(){
+	
+	const { colorState} = useContext(ColorContext);
+
+	const { colorScheme } = colorState;
+	
 	return(
 		<div className="cell-grid">
-			{colors?.map((color, index) => {
+			{colorScheme?.map((color, index) => {
 				return <ColorCell key={index} color={color.hex.value}/>
 			})}
 		</div>

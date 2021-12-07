@@ -1,9 +1,10 @@
 import './Main.css';
 import { useState } from 'react';
+import { ColorContext } from '../../contexts/ColorContext';
 
 import ColorSchemeService from '../../services/colorscheme.service';
-import ColorPicker from '../../components/colorPicker/ColorPicker';
-import CellGrid from '../../components/cellGrid/CellGrid';
+import NewColorScheme from '../../components/newColorScheme/NewColorScheme';
+
 
 function Main(){
 
@@ -16,14 +17,12 @@ function Main(){
 		colorScheme: []
 	});
 
-	const [colorScheme, setColorScheme] = useState();
-
 	function requestScheme(){
 		const {sourceColor, mode, count} = colorState;
 		myColorSchemeService.getOneScheme(sourceColor.substring(1), mode, count)
 			.then(response => {
 				const {colors} = response.data;
-				setColorScheme(colors);
+				setColorState({ ...colorState, colorScheme: colors });
 			})
 			.catch(error => {
 				console.log(error);
@@ -35,20 +34,12 @@ function Main(){
 		requestScheme();
 	}
 
-	function setPickerColor(color){
-		setColorState({...colorState, sourceColor: color});
-	}
-
-	function handleChange(e){
-		let { name, value } = e.currentTarget;
-		setColorState({ ...colorState, [name]: value })
-	}
-
 	return(
 		<div className="main-container">
 			<h1>Palleto APP</h1>
-			<ColorPicker color={colorState.sourceColor} setPickerColor={setPickerColor} schemeOnClick={schemeOnClick} handleChange={handleChange}/>
-			<CellGrid colors={colorScheme}/>
+			<ColorContext.Provider value={{colorState, setColorState}}>
+			<NewColorScheme schemeOnClick={schemeOnClick}/>
+			</ColorContext.Provider>
 		</div>
 	);
 }

@@ -1,7 +1,16 @@
 import './ColorPickerForm.css';
+import { useContext } from "react";
+import { ColorContext } from "../../contexts/ColorContext";
 import OptionSelect from '../../elements/optionSelect/OptionSelect';
 
-function ColorPickerForm({handleChange}){
+function ColorPickerForm(){
+
+	const { colorState, setColorState } = useContext(ColorContext);
+
+	function handleChange(e) {
+		let { name, value } = e.currentTarget;
+		setColorState({ ...colorState, [name]: value })
+	}
 
 	const countSelect = new Array(7);
 
