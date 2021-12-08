@@ -17,10 +17,6 @@ function App() {
 		isAuth: false
 	});
 
-	
-
-
-
 	function loginAuthService(email, password) {
 		console.log("en authUser con usuario: ", email, password);
 			myAuthService.login(email, password)
@@ -51,7 +47,6 @@ function App() {
 					email: email,
 					_id: _id,
 					favorites: favorites,
-					isAuth: true
 				})
 			})
 			.catch(err => {

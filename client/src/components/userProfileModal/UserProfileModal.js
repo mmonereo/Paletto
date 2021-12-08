@@ -1,16 +1,43 @@
 import './UserProfileModal.css';
-import {useContext} from 'react';
+import {useContext, useHistory} from 'react';
 import {UserContext} from '../../contexts/UserContext';
+import UserService from '../../services/UserService';
 
 function UserProfileModal({type}) {
 
+	const myUserService = new UserService(userState._id);
+
 	const { userState, setUserState } = useContext(UserContext);
+
+	const history = useHistory();
+
+	function redirectToPalettes() {
+		history.push('/palettes');
+	}
+
+	function editProfile(){
+		const {username} = userState;
+		myUserService.editProfile(username)
+			.then(res => {
+				console.log(res)
+				redirectToPalettes();
+			})
+			.catch(err=>{
+				console.log(err)
+			});
+	}
 
 	function handleChange(e) {
 		const { value, name } = e.target;
 		setUserState({
 			...userState, [name]: value
 		});
+	}
+
+	function submitProfileModal(e) {
+		e.preventDefault();
+		const {username} = userState;
+		editProfile();
 	}
 
 
@@ -20,16 +47,11 @@ function UserProfileModal({type}) {
 				<div className="profile-modal-title">
 					<h2>{type ==="Create" ? "Create your Profile" : "Update your Profile" }</h2>
 				</div>
-				<form onSubmit={(e) => submitAuthModal(e)}>
+				<form onSubmit={(e) => submitProfileModal(e)}>
 
 					<div className="form-group">
 						<label htmlFor="username-input">Username</label>
 						<input type="email" id="email-input" name="username" onChange={(e) => handleChange(e)} />
-					</div>
-
-					<div className="form-group">
-						<label htmlFor="profileImg-input">Password</label>
-						<input type="password" id="profileImg-input" name="password" autoComplete="on"  onChange={(e) => handleChange(e)} />
 					</div>
 
 					<button type="submit">{type} Profile</button>
