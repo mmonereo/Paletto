@@ -10,8 +10,7 @@ function PaletteNav(){
 
 	return(
 		<nav className="palette-nav">
-			<div className="palette-nav-img">
-				<img src={userState.profileImg} alt="user-profile"></img>
+			<div className="palette-nav-img" style={{backgroundImage: `url(${userState.profileImg})`}}>
 			</div>
 			<CellGrid />
 			<ul className="palette-nav-list">
@@ -22,7 +21,7 @@ function PaletteNav(){
 				</li>
 
 				<li className="palette-nav-item">
-					<input type="button" className="palette-nav-link" value={userState.username} >
+					<input type="button" className="palette-nav-link" value={userState.email} >
 					</input>
 				</li>
 

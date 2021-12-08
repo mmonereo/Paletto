@@ -1,15 +1,22 @@
 import './Main.css';
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { ColorContext } from '../../contexts/ColorContext';
-
+import { UserContext } from '../../contexts/UserContext';
+import loggedUser from '../../utils/loggedUser';
 import ColorSchemeService from '../../services/colorscheme.service';
 import NewColorScheme from '../../components/newColorScheme/NewColorScheme';
 import PaletteNav from '../../components/paletteNav/PaletteNav';
 
+const myColorSchemeService = new ColorSchemeService();
 
 function Main(){
 
-	const myColorSchemeService = new ColorSchemeService();
+	const {userState, setUserState} = useContext(UserContext);
+
+	useEffect(() => {
+		const user = loggedUser()
+		setUserState({...user});
+	}, []);
 
 	const [colorState, setColorState] = useState({
 		sourceColor: '#7fb5d8',
