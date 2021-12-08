@@ -2,13 +2,13 @@ import './UserProfileModal.css';
 import {useContext} from 'react';
 import { useHistory } from 'react-router';
 import {UserContext} from '../../contexts/UserContext';
-import UserService from '../../services/UserService';
+import UserService from '../../services/user.service';
 
 function UserProfileModal({type}) {
 
-	const myUserService = new UserService(userState._id);
-
 	const { userState, setUserState } = useContext(UserContext);
+
+	const myUserService = new UserService(userState._id);
 
 	const history = useHistory();
 
@@ -37,7 +37,6 @@ function UserProfileModal({type}) {
 
 	function submitProfileModal(e) {
 		e.preventDefault();
-		const {username} = userState;
 		editProfile();
 	}
 
@@ -56,7 +55,7 @@ function UserProfileModal({type}) {
 					</div>
 
 					<button type="submit">{type} Profile</button>
-					<button type="button" id={type} onClick={(e) => closeModal(e)}>Close</button>
+					<button type="button" id={type} onClick={() => redirectToPalettes()}>Dismiss</button>
 				</form>
 			</div>
 		</div>

@@ -16,6 +16,8 @@ function AuthModal({type, closeModal}){
 		history.push('/palettes');
 	}
 
+
+
 	function loginAuthService(email, password) {
 		console.log("en authUser con usuario: ", email, password);
 		myAuthService.login(email, password)
@@ -25,7 +27,6 @@ function AuthModal({type, closeModal}){
 					email: email,
 					_id: _id,
 					favorites: favorites,
-					isAuth: true
 				})
 				redirectToPalettes();
 				/* 				CR
@@ -47,6 +48,7 @@ function AuthModal({type, closeModal}){
 					email: email,
 					_id: _id,
 					favorites: favorites,
+					needsProfile: true
 				})
 			})
 			.catch(err => {

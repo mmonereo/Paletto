@@ -3,6 +3,7 @@ import { useState, useContext  } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import AuthNav from '../../components/authNav/AuthNav';
 import AuthModal from '../../components/authModal/AuthModal';
+import UserProfileModal from '../../components/userProfileModal/UserProfileModal';
 
 
 function Landing({submitAuthModal, props}) {
@@ -41,6 +42,7 @@ function Landing({submitAuthModal, props}) {
 				<h1>Welcome</h1>
 				{modalState.LogIn && <AuthModal type="LogIn" closeModal={closeModal} submitAuthModal={submitAuthModal}/>}
 				{modalState.SignUp && <AuthModal type="SignUp" closeModal={closeModal} submitAuthModal={submitAuthModal}/>}
+				{userState.needsProfile && <UserProfileModal type="Create"/>}
 			</div>
 		</>
 	);
