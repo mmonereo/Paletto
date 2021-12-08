@@ -18,7 +18,9 @@ function Main(){
 	});
 
 	function requestScheme(){
+
 		const {sourceColor, mode, count} = colorState;
+
 		myColorSchemeService.getOneScheme(sourceColor.substring(1), mode, count)
 			.then(response => {
 				const {colors} = response.data;
@@ -30,7 +32,6 @@ function Main(){
 	}
 
 	function schemeOnClick(){
-		console.log("clicked");
 		requestScheme();
 	}
 

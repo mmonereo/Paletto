@@ -22,5 +22,8 @@
 2. /palettes/new color picker and generate palette
 
 
+### Check
+1. si el usuario que se registra se loggea automaticamente
+
 
 

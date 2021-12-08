@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Palette = require("../models/Palette");
+const Palette = require("../models/Palette.model");
 
 router.post('/save', (req, res) => {
 

@@ -42,4 +42,4 @@ const paletteSchema = new Schema(
 
 const Palette = model("Palette", paletteSchema);
 
-module.exports = User;
+module.exports = Palette;
