@@ -2,7 +2,10 @@ import './UserProfileModal.css';
 import {useContext} from 'react';
 import { useHistory } from 'react-router';
 import {UserContext} from '../../contexts/UserContext';
+import UploadService from '../../services/upload.service';
 import UserService from '../../services/user.service';
+
+const myUploadService = new UploadService();
 
 function UserProfileModal({type}) {
 
@@ -17,8 +20,9 @@ function UserProfileModal({type}) {
 	}
 
 	function editProfile(){
-		const {username} = userState;
-		myUserService.editProfile(username)
+		const {username, profileImg} = userState;
+
+		myUserService.editProfile(username, profileImg)
 			.then(res => {
 				console.log(res)
 				redirectToPalettes();
@@ -33,6 +37,25 @@ function UserProfileModal({type}) {
 		setUserState({
 			...userState, [name]: value
 		});
+	}
+
+	function handleImgChange(e) {
+		console.log(e.target.files[0]);
+
+		const uploadData = new FormData()
+		uploadData.append('imageData', e.target.files[0])
+
+		myUploadService.uploadImg(uploadData)
+			.then(res => {
+				console.log(res.data)
+				const {cloudinary_url} = res.data;
+				setUserState({
+					...userState, profileImg: cloudinary_url
+				})
+			})
+			.catch(err => {
+				console.log(err)
+			});
 	}
 
 	function submitProfileModal(e) {
@@ -51,7 +74,12 @@ function UserProfileModal({type}) {
 
 					<div className="form-group">
 						<label htmlFor="username-input">Username</label>
-						<input type="email" id="email-input" name="username" onChange={(e) => handleChange(e)} />
+						<input type="text" id="username-input" name="username" onChange={(e) => handleChange(e)} />
+					</div>
+
+					<div className="form-group">
+						<label htmlFor="imageData-input">Choose you Profile Pic</label>
+						<input type="file" id="imageData-input" name="imageData" onChange={(e) => handleImgChange(e)} />
 					</div>
 
 					<button type="submit">{type} Profile</button>

@@ -3,13 +3,12 @@ import axios from 'axios'
 class PalettesService {
 	constructor() {
 		this.axiosApp = axios.create({
-			baseURL: 'http://localhost:5000/palettes',
+			baseURL: 'http://localhost:5000/api/palettes',
 			withCredentials: true
 		})
 	}
 
-	save = (palette) => {
-		const {name, colors, count, mode, tags, creator} = palette
+	save = ({ name, colors, count, mode, tags, creator }) => {
 		this.axiosApp.get("/save", { name, colors, count, mode, tags, creator })
 	}
 

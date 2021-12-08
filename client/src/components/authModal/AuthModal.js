@@ -4,9 +4,9 @@ import { useHistory } from 'react-router';
 import {UserContext} from '../../contexts/UserContext';
 import AuthService from '../../services/auth.service';
 
-function AuthModal({type, closeModal}){
+const myAuthService = new AuthService();
 
-	const myAuthService = new AuthService();
+function AuthModal({type, closeModal}){
 
 	const {userState, setUserState} = useContext(UserContext);
 
@@ -16,23 +16,16 @@ function AuthModal({type, closeModal}){
 		history.push('/palettes');
 	}
 
-
-
 	function loginAuthService(email, password) {
-		console.log("en authUser con usuario: ", email, password);
+		
 		myAuthService.login(email, password)
 			.then(res => {
-				const { email, _id, favorites } = res.data;
+				console.log(res.data);
 				setUserState({
-					email: email,
-					_id: _id,
-					favorites: favorites,
+					...res.data
 				})
+				
 				redirectToPalettes();
-				/* 				CR
-								for (const property in data) {
-									console.log(`${property}: ${data[property]}`);
-								} */
 			})
 			.catch(err => {
 				console.log(err);
@@ -40,7 +33,7 @@ function AuthModal({type, closeModal}){
 	}
 
 	function signupAuthService(email, password) {
-		console.log("en signupAuthService con usuario: ", email, password);
+		
 		myAuthService.signup(email, password)
 			.then(res => {
 				const { email, _id, favorites } = res.data;

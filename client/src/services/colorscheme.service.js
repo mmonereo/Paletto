@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 class ColorSchemeService {
-	constructor(mode, count) {
+	constructor() {
 		this.axiosApp = axios.create({
 			baseURL: 'https://www.thecolorapi.com/scheme'
 		})

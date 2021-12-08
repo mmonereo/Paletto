@@ -4,6 +4,7 @@ import { ColorContext } from '../../contexts/ColorContext';
 
 import ColorSchemeService from '../../services/colorscheme.service';
 import NewColorScheme from '../../components/newColorScheme/NewColorScheme';
+import PaletteNav from '../../components/paletteNav/PaletteNav';
 
 
 function Main(){
@@ -37,9 +38,10 @@ function Main(){
 
 	return(
 		<div className="main-container">
-			<h1>Paletto APP</h1>
-			<ColorContext.Provider value={{colorState, setColorState}}>
-			<NewColorScheme schemeOnClick={schemeOnClick}/>
+			<ColorContext.Provider value={{ colorState, setColorState }}>
+				<PaletteNav />
+				<h1>Paletto APP</h1>
+				<NewColorScheme schemeOnClick={schemeOnClick}/>
 			</ColorContext.Provider>
 		</div>
 	);

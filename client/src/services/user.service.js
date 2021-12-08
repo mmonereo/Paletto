@@ -5,13 +5,14 @@ class UserService {
 
 	constructor(_id) {
 		this.axiosApp = axios.create({
-			baseURL: `http://localhost:5000/user/${_id}`,
+			baseURL: `http://localhost:5000/api/user/${_id}`,
 			withCredentials: true
 		})
+		this._id = _id;
 	}
 
-	editProfile = (username) => {
-		this.axiosApp.put('/edit-profile', {username})
+	editProfile = (username, profileImg) => {
+		return this.axiosApp.put('/edit-profile', {username, profileImg, _id: this._id})
 	}
 
 }

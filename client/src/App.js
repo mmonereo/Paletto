@@ -3,15 +3,13 @@ import './App.css';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import { useState } from 'react';
 import {UserContext} from './contexts/UserContext';
-import Landing from './containers/landing/Landing';
-import Main from './containers/main/Main';
+import Landing from './pages/landing/Landing';
+import Main from './pages/main/Main';
 
 function App() {
 
 	const [userState, setUserState] = useState({
-		email: null,
-		password: null,
-		isAuth: false
+		needsProfile: false,
 	});
 
 	return (

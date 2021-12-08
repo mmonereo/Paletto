@@ -40,9 +40,9 @@ function Landing({submitAuthModal, props}) {
 			<AuthNav showModal={showModal}/>
 			<div className="landing-container">
 				<h1>Welcome</h1>
-				{modalState.LogIn && <AuthModal type="LogIn" closeModal={closeModal} submitAuthModal={submitAuthModal}/>}
-				{modalState.SignUp && <AuthModal type="SignUp" closeModal={closeModal} submitAuthModal={submitAuthModal}/>}
-				{userState.needsProfile && <UserProfileModal type="Create"/>}
+				{modalState.LogIn && <AuthModal type="LogIn" closeModal={closeModal}/>}
+				{modalState.SignUp && <AuthModal type="SignUp" closeModal={closeModal}/>}
+				{userState.needsProfile ? <UserProfileModal type="Create"/> : null}
 			</div>
 		</>
 	);
