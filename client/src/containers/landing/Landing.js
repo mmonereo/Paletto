@@ -1,6 +1,5 @@
 import './Landing.css';
 import { useState, useContext  } from 'react';
-import { useHistory } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
 import AuthNav from '../../components/authNav/AuthNav';
 import AuthModal from '../../components/authModal/AuthModal';
@@ -15,11 +14,7 @@ function Landing({submitAuthModal, props}) {
 		SignUp: false,
 	});
 
-	const history = useHistory();
-
-	function redirectToPalettes(){
-		history.push('/palettes');
-	}
+	
 
 	function showModal(e){
 		const {value} = e.target;
@@ -46,7 +41,6 @@ function Landing({submitAuthModal, props}) {
 				<h1>Welcome</h1>
 				{modalState.LogIn && <AuthModal type="LogIn" closeModal={closeModal} submitAuthModal={submitAuthModal}/>}
 				{modalState.SignUp && <AuthModal type="SignUp" closeModal={closeModal} submitAuthModal={submitAuthModal}/>}
-				{userState.isAuth && redirectToPalettes()}
 			</div>
 		</>
 	);

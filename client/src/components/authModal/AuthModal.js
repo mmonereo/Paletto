@@ -1,10 +1,71 @@
 import './AuthModal.css';
 import {useContext} from 'react';
+import { useHistory } from 'react-router';
 import {UserContext} from '../../contexts/UserContext';
+import AuthService from '../../services/auth.service';
 
-function AuthModal({type, closeModal, submitAuthModal}){
+function AuthModal({type, closeModal}){
+
+	const myAuthService = new AuthService();
 
 	const {userState, setUserState} = useContext(UserContext);
+
+	const history = useHistory();
+
+	function redirectToPalettes() {
+		history.push('/palettes');
+	}
+
+	function loginAuthService(email, password) {
+		console.log("en authUser con usuario: ", email, password);
+		myAuthService.login(email, password)
+			.then(res => {
+				const { email, _id, favorites } = res.data;
+				setUserState({
+					email: email,
+					_id: _id,
+					favorites: favorites,
+					isAuth: true
+				})
+				redirectToPalettes();
+				/* 				CR
+								for (const property in data) {
+									console.log(`${property}: ${data[property]}`);
+								} */
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	}
+
+	function signupAuthService(email, password) {
+		console.log("en signupAuthService con usuario: ", email, password);
+		myAuthService.signup(email, password)
+			.then(res => {
+				const { email, _id, favorites } = res.data;
+				setUserState({
+					email: email,
+					_id: _id,
+					favorites: favorites,
+				})
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	}
+
+
+	function submitAuthModal(e) {
+		e.preventDefault();
+		const { email, password, action } = userState;
+
+		if (action === 'LogIn') {
+			loginAuthService(email, password);
+		}
+		else if (action === 'SignUp') {
+			signupAuthService(email, password);
+		}
+	}
 
 	function handleChange(e) {
 		const { value, name} = e.target;

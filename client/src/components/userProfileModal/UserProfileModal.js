@@ -1,5 +1,6 @@
 import './UserProfileModal.css';
-import {useContext, useHistory} from 'react';
+import {useContext} from 'react';
+import { useHistory } from 'react-router';
 import {UserContext} from '../../contexts/UserContext';
 import UserService from '../../services/UserService';
 
