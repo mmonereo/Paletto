@@ -1,6 +1,6 @@
 
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import { useState } from 'react';
 import {UserContext} from './contexts/UserContext';
 import AuthService from './services/auth.service';
@@ -13,8 +13,13 @@ function App() {
 
 	const [userState, setUserState] = useState({
 		email: null,
-		password: null
+		password: null,
+		isAuth: false
 	});
+
+	
+
+
 
 	function loginAuthService(email, password) {
 		console.log("en authUser con usuario: ", email, password);
@@ -24,7 +29,8 @@ function App() {
 					setUserState({
 						email: email,
 						_id: _id,
-						favorites: favorites
+						favorites: favorites,
+						isAuth: true
 					})
 					/* 				CR
 									for (const property in data) {
@@ -44,7 +50,8 @@ function App() {
 				setUserState({
 					email: email,
 					_id: _id,
-					favorites: favorites
+					favorites: favorites,
+					isAuth: true
 				})
 			})
 			.catch(err => {
@@ -70,7 +77,7 @@ function App() {
 			<BrowserRouter>
 				<Switch>
 					<UserContext.Provider value={{userState, setUserState}}>
-						<Route path="/" exact render={() => <Landing submitAuthModal={submitAuthModal}/>} />
+						<Route path="/" exact render={(props) => <Landing {...props} submitAuthModal={submitAuthModal}/>} />
 						<Route path="/palettes" component={Main} />
 					</UserContext.Provider>
 				</Switch>
