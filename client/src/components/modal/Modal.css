@@ -1,4 +1,4 @@
-.profile-modal {
+.modal-wrapper {
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -11,7 +11,7 @@
 }
 
 /* Modal Content/Box */
-.profile-modal-content {
+.modal-content {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;

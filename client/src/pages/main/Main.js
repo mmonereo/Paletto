@@ -12,7 +12,7 @@ const myColorSchemeService = new ColorSchemeService();
 
 function Main(){
 
-	const {UserState, setUserState} = useContext(UserContext);
+	const {setUserState} = useContext(UserContext);
 
 	useEffect(() => {
 		loggedUser()

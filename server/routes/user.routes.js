@@ -7,6 +7,7 @@ router.put('/:id/edit-profile',  (req, res) => {
 	User.findByIdAndUpdate(_id, {username, profileImg}, { new: true })
 		.then(userEdit => {
 			console.log("user profile updated", userEdit);
+			req.session.currentUser = userEdit;
 			res.json(userEdit);
 		})
 		.catch(err => {

@@ -1,17 +1,21 @@
-import './UserProfileModal.css';
-import {useContext} from 'react';
+import './UserProfileForm.css';
+
+import { useState } from 'react';
 import { useHistory } from 'react-router';
-import {UserContext} from '../../contexts/UserContext';
 import UploadService from '../../services/upload.service';
 import UserService from '../../services/user.service';
 
 const myUploadService = new UploadService();
 
-function UserProfileModal({type}) {
+function UserProfileForm({ type, _id }) {
 
-	const { userState, setUserState } = useContext(UserContext);
+	const [profileFormState, setprofileFormState] = useState({
+		username: '',
+		profileImg: '',
+		uploaded: false
+	});
 
-	const myUserService = new UserService(userState._id);
+	const myUserService = new UserService(_id);
 
 	const history = useHistory();
 
@@ -19,23 +23,20 @@ function UserProfileModal({type}) {
 		history.push('/palettes');
 	}
 
-	function editProfile(){
-		const {username, profileImg} = userState;
+	function editProfile() {
+		const { username, profileImg, uploaded } = profileFormState;
 
-		myUserService.editProfile(username, profileImg)
-			.then(res => {
-				console.log(res)
-				redirectToPalettes();
-			})
-			.catch(err=>{
-				console.log(err)
-			});
+		if (uploaded){
+			myUserService.editProfile(username, profileImg)
+				.then(res => redirectToPalettes())
+				.catch(err => console.log(err));
+		}
 	}
 
 	function handleChange(e) {
 		const { value, name } = e.target;
-		setUserState({
-			...userState, [name]: value
+		setprofileFormState({
+			...profileFormState, [name]: value
 		});
 	}
 
@@ -47,30 +48,26 @@ function UserProfileModal({type}) {
 
 		myUploadService.uploadImg(uploadData)
 			.then(res => {
-				console.log(res.data)
-				const {cloudinary_url} = res.data;
-				setUserState({
-					...userState, profileImg: cloudinary_url
+				const { cloudinary_url } = res.data;
+				setprofileFormState({
+					...profileFormState, profileImg: cloudinary_url, uploaded: true
 				})
 			})
-			.catch(err => {
-				console.log(err)
-			});
+			.catch(err => console.log(err));
 	}
 
-	function submitProfileModal(e) {
+	function submitProfileForm(e) {
 		e.preventDefault();
 		editProfile();
 	}
 
 
-	return(
-		<div className="profile-modal">
-			<div className="profile-modal-content">
-				<div className="profile-modal-title">
-					<h2>{type ==="Create" ? "Create your Profile" : "Update your Profile" }</h2>
+	return (
+		<>
+				<div className="profile-form-title">
+					<h2>{type === "Create" ? "Create your Profile" : "Update your Profile"}</h2>
 				</div>
-				<form onSubmit={(e) => submitProfileModal(e)}>
+				<form onSubmit={(e) => submitProfileForm(e)}>
 
 					<div className="form-group">
 						<label htmlFor="username-input">Username</label>
@@ -85,9 +82,8 @@ function UserProfileModal({type}) {
 					<button type="submit">{type} Profile</button>
 					<button type="button" id={type} onClick={() => redirectToPalettes()}>Dismiss</button>
 				</form>
-			</div>
-		</div>
+		</>
 	);
 }
 
-export default UserProfileModal;
+export default UserProfileForm;
