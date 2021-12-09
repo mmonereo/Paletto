@@ -20,7 +20,6 @@ function AuthModal({type, closeModal}){
 		
 		myAuthService.login(email, password)
 			.then(res => {
-				console.log(res.data);
 				setUserState({
 					...res.data
 				})

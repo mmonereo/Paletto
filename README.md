@@ -24,6 +24,10 @@
 
 ### Check
 1. si el usuario que se registra se loggea automaticamente
+2. copy to clipboard
+3. foto no carga al crear perfil
+4. cambiar modales landing y pasarlos a rutas
+5. loading en palette
 
 
 

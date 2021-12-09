@@ -6,17 +6,26 @@ import loggedUser from '../../utils/loggedUser';
 import ColorSchemeService from '../../services/colorscheme.service';
 import NewColorScheme from '../../components/newColorScheme/NewColorScheme';
 import PaletteNav from '../../components/paletteNav/PaletteNav';
+import SandBox from '../../components/sandBox/SandBox';
 
 const myColorSchemeService = new ColorSchemeService();
 
 function Main(){
 
-	const {userState, setUserState} = useContext(UserContext);
+	const {UserState, setUserState} = useContext(UserContext);
 
 	useEffect(() => {
-		const user = loggedUser()
-		setUserState({...user});
+		loggedUser()
+			.then(currentUser => {
+				setCurrentUser(currentUser.data);
+			})
+			.catch(err => console.log(err))
 	}, []);
+
+	function setCurrentUser(user){
+		console.log("currentUser in main", user)
+		setUserState({ ...user });
+	}
 
 	const [colorState, setColorState] = useState({
 		sourceColor: '#7fb5d8',
@@ -46,9 +55,14 @@ function Main(){
 	return(
 		<div className="main-container">
 			<ColorContext.Provider value={{ colorState, setColorState }}>
-				<PaletteNav />
-				<h1>Paletto APP</h1>
-				<NewColorScheme schemeOnClick={schemeOnClick}/>
+				<div className="main-nav-title">
+					<PaletteNav />
+					<h1>Paletto APP</h1>
+				</div>
+				<div className="main-content">
+					<NewColorScheme schemeOnClick={schemeOnClick} />
+					<SandBox />
+				</div>
 			</ColorContext.Provider>
 		</div>
 	);

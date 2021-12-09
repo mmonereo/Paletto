@@ -4,8 +4,8 @@ async function loggedUser() {
 
 	const myAuthService = new AuthService();
 	
-	const user = await myAuthService.loggedUser().then(response => response.data)
-
+	const user = await myAuthService.loggedUser()
+	console.log("user en logged util", user)
 	return user;
 }
 

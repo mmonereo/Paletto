@@ -15,7 +15,7 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/loggedin", (req, res) => {
-	res.json(req.user);
+	req.session.currentUser ? res.json(req.session.currentUser) : res.status(401).json({ code: 401, message: 'Unauthorized' })
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
@@ -61,7 +61,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
 			})
 			.then((user) => {
 				// Bind the user to the session object
-				req.session.user = user;
+				req.session.currentUser = user;
 				res.status(201).json(user);
 			})
 			.catch((error) => {
@@ -104,7 +104,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 				if (!isSamePassword) {
 					return res.status(400).json({ errorMessage: "Wrong credentials." });
 				}
-				req.session.user = user;
+				req.session.currentUser = user;
 				// req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
 				return res.json(user);
 			});
