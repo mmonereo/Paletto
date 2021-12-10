@@ -1,4 +1,4 @@
-import './MockCard.css';
+/* import './MockCard.css';
 import {useContext} from 'react';
 import {ColorContext} from '../../contexts/ColorContext';
 
@@ -9,11 +9,7 @@ function MockCard({count}){
 
 	const {colorState, setColorState} = useContext(ColorContext);
 
-	const bgColor = colorState.colorScheme.length ? colorState.colorScheme[1].hex.value : '#FFF';
 
-	const style = { backgroundColor: bgColor };
-
-	const secondaryColor = colorState.colorScheme.length ? colorState.colorScheme[2].hex.value : '#FFF';
 
 	return(
 		<div className="mock-card" style={style}>
@@ -31,4 +27,4 @@ function MockCard({count}){
 	);
 }
 
-export default MockCard;
+export default MockCard */;

@@ -3,8 +3,10 @@ import './ColorCell.css'
 
 function CollorCell({color}){
 	return (
-		<div className="color-cell" style={{backgroundColor: color}}>
-		</div>
+		<button>
+			<div className="color-cell" style={{backgroundColor: color}}>
+			</div>
+		</button>
 	)
 }
 

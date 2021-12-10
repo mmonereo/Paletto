@@ -2,6 +2,7 @@ import './Main.css';
 import { useState, useEffect, useContext } from 'react';
 import { ColorContext } from '../../contexts/ColorContext';
 import { UserContext } from '../../contexts/UserContext';
+import { SandBoxContext } from '../../contexts/SandBoxContext';
 import loggedUser from '../../utils/loggedUser';
 import ColorSchemeService from '../../services/colorscheme.service';
 import NewColorScheme from '../../components/newColorScheme/NewColorScheme';
@@ -15,10 +16,9 @@ function Main(){
 	const {setUserState} = useContext(UserContext);
 
 	useEffect(() => {
+		//CR
 		loggedUser()
-			.then(currentUser => {
-				setCurrentUser(currentUser.data);
-			})
+			.then(currentUser => setCurrentUser(currentUser.data))
 			.catch(err => console.log(err))
 	}, []);
 
@@ -33,6 +33,8 @@ function Main(){
 		count: '2',
 		colorScheme: []
 	});
+
+	const [sandBoxState, setSandBoxState] = useState(null);
 
 	function requestScheme(){
 
@@ -55,14 +57,19 @@ function Main(){
 	return(
 		<div className="main-container">
 			<ColorContext.Provider value={{ colorState, setColorState }}>
-				<div className="main-nav-title">
-					<PaletteNav />
-					<h1>Paletto APP</h1>
-				</div>
-				<div className="main-content">
-					<NewColorScheme schemeOnClick={schemeOnClick} />
-					<SandBox />
-				</div>
+
+					<div className="main-nav-title">
+						<PaletteNav />
+						<h1>Paletto APP</h1>
+					</div>
+					
+				<SandBoxContext.Provider value={{ sandBoxState, setSandBoxState }}>
+					<div className="main-content">
+						<NewColorScheme schemeOnClick={schemeOnClick} />
+						<SandBox />
+					</div>
+				</SandBoxContext.Provider>
+
 			</ColorContext.Provider>
 		</div>
 	);
