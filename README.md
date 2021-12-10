@@ -26,6 +26,7 @@
 
 2. copy to clipboard
 3. mock component form default option
+4. conditional renddering on mock panel when no palette is selected
 5. loading en palette
 
 

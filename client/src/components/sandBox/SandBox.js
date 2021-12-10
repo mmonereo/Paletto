@@ -21,10 +21,12 @@ function SandBox(){
 			<div className="sandbox" style={style}>
 				
 			</div>
-			<div className="sandbox-panel">
-				<SandBoxPanel />
-				<SandBoxForm />
-			</div>
+			
+			{colorState.colorScheme.length ? 
+				<div className="sandbox-panel">
+					<SandBoxPanel />
+					<SandBoxForm />
+				</div> : null}
 		</>
 	);
 }
