@@ -12,8 +12,8 @@ function SandBoxPanel(props) {
 	const grids = [];
 
 	function limitColor(i, max){
-		if(i >= max){
-			return max;
+		if(i >= max - 1){
+			return max - 1;
 		}
 		return i;
 	}
@@ -25,6 +25,7 @@ function SandBoxPanel(props) {
 				<CellGrid key={`cellgridn${i}`}label={`color ${i + 1}`} 
 				selectedColor={colorState.colorScheme[limitColor(i , colorState.count)].hex.value} />
 			);
+			console.log("selected color", colorState.colorScheme[limitColor(i, colorState.count)].hex.value)
 		}
 
 		grids.push(

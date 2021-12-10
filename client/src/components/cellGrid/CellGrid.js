@@ -17,22 +17,21 @@ function CellGrid({label, selectedColor}) {
 
 	const key = label ? label.split(' ').join('') : null
 
-	useEffect(()=>{
-		updateSandBox()
-	}, [selectedColorState])
-
 	function colorCellOnClick(e) {
 		const color = e.target.dataset.color
 		setSelectedColorState(color);
+		updateSandBox()
 	}
 
 	function updateSandBox(){
 		setSandBoxState({...sandBoxState, [key]: selectedColorState})
 	}
 	
+	
 	return(
-		<>	{label ? <p>{label}</p> : null}
-			<div className="cell-grid" data-selectedColor={selectedColorState}>
+		<>	
+			{label ? <p>{label}</p> : null}
+			<div className="cell-grid" data-selectedcolor={selectedColorState}>
 				{colorScheme?.map((color, index) => {
 					return <ColorCell key={index} color={color.hex.value} colorCellOnClick={colorCellOnClick}/>
 				})}

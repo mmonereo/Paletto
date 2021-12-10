@@ -30,7 +30,7 @@ function Main(){
 	const [colorState, setColorState] = useState({
 		sourceColor: '#7fb5d8',
 		mode: 'analogic',
-		count: '2',
+		count: 2,
 		colorScheme: []
 	});
 

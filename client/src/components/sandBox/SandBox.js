@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { SandBoxContext } from '../../contexts/SandBoxContext';
 import { ColorContext } from '../../contexts/ColorContext';
 import SandBoxForm from '../sandBoxForm/SandBoxForm';
@@ -10,15 +10,14 @@ import './SandBox.css';
 function SandBox(){
 
 	const { colorState } = useContext(ColorContext);
-	const {sandBoxState, setSandBoxstate} = useContext(SandBoxContext);
+	const { sandBoxState, setSandBoxState } = useContext(SandBoxContext);
 
-	const bgColor = colorState.colorScheme.length ? colorState.colorScheme[0].hex.value : '#FFF';
 
-	const style = { backgroundColor: bgColor };
+	useEffect(() => {} , [sandBoxState.bgColor]);
 
 	return(
 		<>
-			<div className="sandbox" style={style}>
+			<div className="sandbox" style={{backgroundColor: sandBoxState.bgColor}}>
 				
 			</div>
 			
