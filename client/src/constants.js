@@ -5,12 +5,17 @@ export const MODE_SELECT = ["analogic", "analogic-complement", "complement", "mo
 export const MOCK_SELECT = [
 	
 	{
+		component: "None",
+		totalColors: 0,
+	},
+	
+	{
 		component: "MockCard",
-		totalColors: "4",
+		totalColors: 4,
 	},
 
 	{
 		component: "MockButton",
-		totalColors: "2",
+		totalColors: 2,
 	}
 ]

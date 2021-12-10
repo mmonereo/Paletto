@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { SandBoxContext } from '../../contexts/SandBoxContext';
 import { ColorContext } from '../../contexts/ColorContext';
 import SandBoxForm from '../sandBoxForm/SandBoxForm';
+import SandBoxPanel from '../sandBoxPanel/SandBoxPanel';
 
 import './SandBox.css';
 
@@ -20,7 +21,10 @@ function SandBox(){
 			<div className="sandbox" style={style}>
 				
 			</div>
-			<SandBoxForm />
+			<div className="sandbox-panel">
+				<SandBoxPanel />
+				<SandBoxForm />
+			</div>
 		</>
 	);
 }

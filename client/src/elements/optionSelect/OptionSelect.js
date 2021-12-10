@@ -1,8 +1,8 @@
 import './OptionSelect.css';
 
-function OptionSelect({value, totalColors}){
+function OptionSelect({value}){
 	return(
-		<option value={value} data-total-colors={totalColors ? totalColors : null}>{value}</option>
+		<option value={value}> {value}</option>
 	);	
 }
 

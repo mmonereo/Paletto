@@ -34,7 +34,10 @@ function Main(){
 		colorScheme: []
 	});
 
-	const [sandBoxState, setSandBoxState] = useState(null);
+	const [sandBoxState, setSandBoxState] = useState({
+		component: "None",
+		totalColors: 0
+	});
 
 	function requestScheme(){
 

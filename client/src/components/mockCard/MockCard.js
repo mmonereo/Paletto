@@ -1,4 +1,4 @@
-/* import './MockCard.css';
+import './MockCard.css';
 import {useContext} from 'react';
 import {ColorContext} from '../../contexts/ColorContext';
 
@@ -27,4 +27,4 @@ function MockCard({count}){
 	);
 }
 
-export default MockCard */;
+export default MockCard ;

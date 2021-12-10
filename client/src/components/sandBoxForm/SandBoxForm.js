@@ -11,10 +11,10 @@ function SandBoxForm(){
 
 
 	function handleChange(e) {
-		const mockComponent = [...e.target.options].filter(o => o.selected).map(o => o.value);
-		const totalColors = [...e.target.options].filter(o => o.selected).map(o => o.dataset.totalColors);
-
-		setSandBoxState({ mockComponent, totalColors});
+		const mockComponentValue = [...e.target.options].filter(o => o.selected).map(o => o.value);
+		const mockComponent = MOCK_SELECT.filter(elm => elm.component === mockComponentValue[0])
+	
+		setSandBoxState(...mockComponent);
 	}
 
 	return(
@@ -23,7 +23,7 @@ function SandBoxForm(){
 
 				<label htmlFor="mock-select" >Choose Mock</label>
 				<select id="mock-select" name="mode" onChange={(e) => handleChange(e)}>
-					{MOCK_SELECT.map((elm, index) =>  <OptionSelect key={index} value={elm.component} totalColors={elm.totalColors}/>)}
+					{MOCK_SELECT.map((elm, index) =>  <OptionSelect key={index} value={`${elm.component}`}/>)}
 				</select>
 
 			</form>
