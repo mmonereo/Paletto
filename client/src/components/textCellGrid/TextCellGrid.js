@@ -1,7 +1,6 @@
 import './TextCellGrid.css';
 
 import { useContext, useState, useEffect } from "react";
-import { ColorContext } from "../../contexts/ColorContext";
 import { SandBoxContext } from '../../contexts/SandBoxContext';
 import ColorCell from '../../elements/colorCell/ColorCell';
 import { TEXT_COLORS } from '../../constants';

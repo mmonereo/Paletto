@@ -10,12 +10,12 @@ function SandBoxPanel(props) {
 	const {sandBoxState, setSandBoxState} = useContext(SandBoxContext);
 	const { colorState } = useContext(ColorContext);
 	const [gridState, setGridState] = useState([]);
-
+	let newPaletteAuxState = {};
 	
 
 	useEffect(() => {
 		countGrids()
-	}, [sandBoxState.component]);
+	}, [sandBoxState.component, colorState.colorScheme]);
 
 	function limitColor(i, max){
 		if(i >= max - 1){
@@ -23,6 +23,7 @@ function SandBoxPanel(props) {
 		}
 		return i;
 	}
+
 	
 	function countGrids() {
 		const grids = [];
@@ -34,7 +35,7 @@ function SandBoxPanel(props) {
 				<CellGrid key={`cellgridn${i}`}label={`color ${i + 1}`} 
 				selectedColor={selectedColor} />
 			);
-			setSandBoxState({ ...sandBoxState, [`color${i + 1}`]: selectedColor});
+			newPaletteAuxState = { ...newPaletteAuxState, [`color${i + 1}`]: selectedColor};
 			console.log("selected color", selectedColor)
 		}
 
@@ -42,16 +43,15 @@ function SandBoxPanel(props) {
 			grids.push(
 				<CellGrid key={`cellgridbg`} label={`bg color`} selectedColor={colorState.colorScheme[0].hex.value}/>
 			);
-			setSandBoxState({ ...sandBoxState, ['bgcolor']: colorState.colorScheme[0].hex.value});
+			newPaletteAuxState = { ...newPaletteAuxState, ['bgcolor']: colorState.colorScheme[0].hex.value};
 		}
 
 		if (sandBoxState.text) {
 			grids.push(
 				<TextCellGrid key={`cellgridtext`}/>
-				
 			);
 		}
-
+		setSandBoxState({ ...sandBoxState, ...newPaletteAuxState});
 		setGridState(grids);
 	}
 

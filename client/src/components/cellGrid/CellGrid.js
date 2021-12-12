@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { ColorContext } from "../../contexts/ColorContext";
 import { SandBoxContext } from '../../contexts/SandBoxContext';
 import ColorCell from '../../elements/colorCell/ColorCell';
+import { TEXT_COLORS } from '../../constants';
 
 function CellGrid({label, selectedColor}) {
 	
@@ -17,10 +18,9 @@ function CellGrid({label, selectedColor}) {
 
 	const key = label ? label.split(' ').join('') : null
 
-
 	useEffect(() => {
 		updateSandBox()
-	}, [selectedColorState])
+	}, [selectedColorState, colorScheme])
 
 	
 
@@ -43,6 +43,9 @@ function CellGrid({label, selectedColor}) {
 				{colorScheme?.map((color, index) => {
 					return <ColorCell key={index} color={color.hex.value} colorCellOnClick={colorCellOnClick}/>
 				})}
+				{label === 'bg color' ? TEXT_COLORS.map((color, index) => {
+					return <ColorCell key={index} color={color} colorCellOnClick={colorCellOnClick} />
+				}) : null}
 			</div>
 		</>
 	);

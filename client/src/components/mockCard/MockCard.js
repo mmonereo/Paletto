@@ -4,15 +4,15 @@ import RoundButton from '../../elements/roundButton/RoundButton';
 import { SandBoxContext } from '../../contexts/SandBoxContext';
 
 
-function MockCard({style}){
+function MockCard(){
 
-	const {sandBoxState, setSandBoxState} = useContext(SandBoxContext);
+	const {sandBoxState} = useContext(SandBoxContext);
 
 
 
 	return(
-		<div className="mock-card" style={{backgroundColor: sandBoxState.color1, color: sandBoxState.textcolor}}>
-			<div className="mock-card-header" style={{ backgroundColor: sandBoxState.color2}}>
+		<div className="mock-card" style={{backgroundColor: sandBoxState.color1, color: sandBoxState.textcolor, borderColor: sandBoxState.color3}}>
+			<div className="mock-card-header" style={{ backgroundColor: sandBoxState.color2, borderColor: sandBoxState.color3}}>
 				<h3>Mock Card</h3>
 			</div>
 			<div className="mock-card-body">
