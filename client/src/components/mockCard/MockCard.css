@@ -4,9 +4,15 @@
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
-	border: 1px solid #ccc;
+	border: 2px solid #ccc;
 	width: 400px;
 }
+
+.mock-card-header{
+	border: 2px solid #ccc;
+	padding: 5px;
+}
+
 
 .mock-card-body{
 	padding: 10px;

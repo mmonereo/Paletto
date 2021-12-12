@@ -1,0 +1,6 @@
+.cell-grid{
+	display: flex;
+	gap: 1px;
+	padding: 5px;
+	justify-content: center;
+}

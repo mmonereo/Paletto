@@ -1,51 +1,49 @@
-import './CellGrid.css';
+import './TextCellGrid.css';
 
 import { useContext, useState, useEffect } from "react";
 import { ColorContext } from "../../contexts/ColorContext";
 import { SandBoxContext } from '../../contexts/SandBoxContext';
 import ColorCell from '../../elements/colorCell/ColorCell';
+import { TEXT_COLORS } from '../../constants';
 
-function CellGrid({label, selectedColor}) {
-	
-	const { colorState} = useContext(ColorContext);
+function TextCellGrid() {
 
-	const { colorScheme } = colorState;
 
 	const { sandBoxState, setSandBoxState } = useContext(SandBoxContext);
 
-	const [selectedColorState, setSelectedColorState] = useState(selectedColor)
+	const [selectedColorState, setSelectedColorState] = useState(TEXT_COLORS[0]);
 
-	const key = label ? label.split(' ').join('') : null
-
+	const key = 'textcolor'
 
 	useEffect(() => {
 		updateSandBox()
 	}, [selectedColorState])
 
-	
 
-	function colorCellOnClick(e) { 
+
+	function colorCellOnClick(e) {
 		const color = e.target.dataset.color
 		setSelectedColorState(color);
 		//updateSandBox()
 	}
 
-	function updateSandBox(){
+	function updateSandBox() {
 		console.log("sandboxstate actualizado desde cellgrid")
-		setSandBoxState({...sandBoxState, [key]: selectedColorState})
+		setSandBoxState({ ...sandBoxState, [key]: selectedColorState })
 	}
+
 	
-	
-	return(
-		<>	
-			{label ? <p>{label}</p> : null}
+
+	return (
+		<>
+			<p>text color</p>
 			<div className="cell-grid" data-selectedcolor={selectedColorState}>
-				{colorScheme?.map((color, index) => {
-					return <ColorCell key={index} color={color.hex.value} colorCellOnClick={colorCellOnClick}/>
+				{TEXT_COLORS?.map((color, index) => {
+					return <ColorCell key={index} color={color} colorCellOnClick={colorCellOnClick} />
 				})}
 			</div>
 		</>
 	);
 }
 
-export default CellGrid;
+export default TextCellGrid;

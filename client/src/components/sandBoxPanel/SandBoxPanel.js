@@ -1,15 +1,21 @@
 import './SandBoxPanel.css';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ColorContext } from '../../contexts/ColorContext';
 import { SandBoxContext } from '../../contexts/SandBoxContext';
 import CellGrid from '../cellGrid/CellGrid';
+import TextCellGrid from '../textCellGrid/TextCellGrid';
 
 function SandBoxPanel(props) {
 
-	const {sandBoxState} = useContext(SandBoxContext);
+	const {sandBoxState, setSandBoxState} = useContext(SandBoxContext);
 	const { colorState } = useContext(ColorContext);
+	const [gridState, setGridState] = useState([]);
 
-	const grids = [];
+	
+
+	useEffect(() => {
+		countGrids()
+	}, [sandBoxState.component]);
 
 	function limitColor(i, max){
 		if(i >= max - 1){
@@ -17,35 +23,42 @@ function SandBoxPanel(props) {
 		}
 		return i;
 	}
-
+	
 	function countGrids() {
+		const grids = [];
 
 		for (let i = 0; i < sandBoxState.totalColors; i++) {
+			
+			let selectedColor = colorState.colorScheme[limitColor(i, colorState.count)].hex.value;
 			grids.push(
 				<CellGrid key={`cellgridn${i}`}label={`color ${i + 1}`} 
-				selectedColor={colorState.colorScheme[limitColor(i , colorState.count)].hex.value} />
+				selectedColor={selectedColor} />
 			);
-			console.log("selected color", colorState.colorScheme[limitColor(i, colorState.count)].hex.value)
+			setSandBoxState({ ...sandBoxState, [`color${i + 1}`]: selectedColor});
+			console.log("selected color", selectedColor)
 		}
 
-		grids.push(
-			<CellGrid key={`cellgridbg`} label={`bg color`} selectedColor={colorState.colorScheme[0].hex.value}/>
-		);
+		if (sandBoxState.component !== 'None') {
+			grids.push(
+				<CellGrid key={`cellgridbg`} label={`bg color`} selectedColor={colorState.colorScheme[0].hex.value}/>
+			);
+			setSandBoxState({ ...sandBoxState, ['bgcolor']: colorState.colorScheme[0].hex.value});
+		}
 
 		if (sandBoxState.text) {
 			grids.push(
-				<CellGrid key={`cellgridtext`} label={`text color`}/>
+				<TextCellGrid key={`cellgridtext`}/>
+				
 			);
 		}
+
+		setGridState(grids);
 	}
 
-	if (sandBoxState.totalColors > 0) {
-		countGrids();
-	}
 	
 	return(
 		<div className="sandbox-panel-colors">
-			{grids.map(grid => grid)}
+			{gridState?.map(grid => grid)}
 		</div>
 	);
 }
