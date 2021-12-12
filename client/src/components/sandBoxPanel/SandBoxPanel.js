@@ -28,14 +28,14 @@ function SandBoxPanel(props) {
 	function countGrids() {
 		const grids = [];
 
-		for (let i = 0; i < sandBoxState.totalColors; i++) {
+		for (let i = 1; i < sandBoxState.totalColors + 1; i++) {
 			
 			let selectedColor = colorState.colorScheme[limitColor(i, colorState.count)].hex.value;
 			grids.push(
-				<CellGrid key={`cellgridn${i}`}label={`color ${i + 1}`} 
+				<CellGrid key={`cellgridn${i}`}label={`color ${i}`} 
 				selectedColor={selectedColor} />
 			);
-			newPaletteAuxState = { ...newPaletteAuxState, [`color${i + 1}`]: selectedColor};
+			newPaletteAuxState = { ...newPaletteAuxState, [`color${i}`]: selectedColor};
 			console.log("selected color", selectedColor)
 		}
 

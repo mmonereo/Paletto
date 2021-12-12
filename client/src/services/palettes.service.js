@@ -9,7 +9,7 @@ class PalettesService {
 	}
 
 	save = ({ name, colors, count, mode, tags, creator }) => {
-		this.axiosApp.get("/save", { name, colors, count, mode, tags, creator })
+		this.axiosApp.post("/save", { name, colors, count, mode, tags, creator })
 	}
 
 	latest = () => this.axiosApp.get("/login", { username, password })

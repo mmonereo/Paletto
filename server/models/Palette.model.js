@@ -11,7 +11,6 @@ const paletteSchema = new Schema(
 			type: String,
 			required: true,
 			trim: true,
-			//CR maxlength
 		}],
 
 		count: {
@@ -28,7 +27,7 @@ const paletteSchema = new Schema(
 		tags: [{
 			type: String,
 			trim: true,
-			//CR maxlength
+			maxlength: 4,
 		}],
 
 		creator: {

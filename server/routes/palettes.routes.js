@@ -21,13 +21,8 @@ router.get('/browse/latest', (req, res) => {
 	Palette.find({})
 		.sort({createdAt: -1})
 		.limit(10)
-		.then(palettes => {
-			res.json(palettes);
-		})
-		.catch(err => {
-			console.log(err);
-			res.json({err, errMessage: "Error getting latest palettes"});
-		});
+		.then(palettes => res.json(palettes))
+		.catch(err => res.json({err, errMessage: "Error getting latest palettes"}));
 });
 
 router.get('/browse/:tag', (req, res) => {
@@ -35,13 +30,8 @@ router.get('/browse/:tag', (req, res) => {
 	const {tag} = req.params;
 
 	Palette.find({tags: tag})
-		.then(palettes => {
-			res.json(palettes);
-		})
-		.catch(err => {
-			console.log(err);
-			res.json({err, errMessage: "Error getting palettes by tag"});
-		});
+		.then(palettes => res.json(palettes))
+		.catch(err => res.json({err, errMessage: "Error getting palettes by tag"}));
 });
 
 

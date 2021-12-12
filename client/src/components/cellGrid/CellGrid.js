@@ -20,18 +20,16 @@ function CellGrid({label, selectedColor}) {
 
 	useEffect(() => {
 		updateSandBox()
-	}, [selectedColorState, colorScheme])
+	}, [selectedColorState])
 
 	
 
 	function colorCellOnClick(e) { 
 		const color = e.target.dataset.color
 		setSelectedColorState(color);
-		//updateSandBox()
 	}
 
 	function updateSandBox(){
-		console.log("sandboxstate actualizado desde cellgrid")
 		setSandBoxState({...sandBoxState, [key]: selectedColorState})
 	}
 	
