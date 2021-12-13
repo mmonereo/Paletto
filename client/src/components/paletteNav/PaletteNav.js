@@ -17,6 +17,10 @@ function PaletteNav(){
 		history.push('/');
 	}
 
+	function redirectToSocial() {
+		history.push('/social');
+	}
+
 	function handleLogout(){
 		
 		myAuthService.logout()
@@ -40,6 +44,11 @@ function PaletteNav(){
 
 				<li className="palette-nav-item">
 					<input type="button" className="palette-nav-link" value={ userState ? `${ userState.email }` : null} >
+					</input>
+				</li>
+
+				<li className="palette-nav-item">
+					<input type="button" className="palette-nav-link" value="Social" onClick={() => redirectToSocial()}>
 					</input>
 				</li>
 

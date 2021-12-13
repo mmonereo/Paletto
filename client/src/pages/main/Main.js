@@ -16,6 +16,8 @@ function Main(){
 
 	const {setUserState} = useContext(UserContext);
 
+	const { colorState, setColorState } = useContext(ColorContext);
+
 	useEffect(() => {
 		//CR
 		loggedUser()
@@ -27,13 +29,6 @@ function Main(){
 		console.log("currentUser in main", user)
 		setUserState({ ...user });
 	}
-
-	const [colorState, setColorState] = useState({
-		sourceColor: '#7fb5d8',
-		mode: 'analogic',
-		count: 2,
-		colorScheme: []
-	});
 
 	const [sandBoxState, setSandBoxState] = useState({
 		component: "None",
@@ -47,7 +42,7 @@ function Main(){
 		myColorSchemeService.getOneScheme(sourceColor.substring(1), mode, count)
 			.then(response => {
 				const {colors} = response.data;
-				setColorState({ ...colorState, colorScheme: colors });
+				setColorState({ ...colorState, colorScheme: colors.map(color => color.hex.value) });
 			})
 			.catch(error => {
 				console.log(error);
@@ -60,7 +55,7 @@ function Main(){
 
 	return(
 		<div className="main-container">
-			<ColorContext.Provider value={{ colorState, setColorState }}>
+			
 
 					<div className="main-nav-title">
 						<PaletteNav />
@@ -74,7 +69,7 @@ function Main(){
 					</div>
 				</SandBoxContext.Provider>
 				{colorState.colorScheme.length > 0 && <SavePalettePanel/>}
-			</ColorContext.Provider>
+			
 		</div>
 	);
 }

@@ -2,8 +2,6 @@ import "./ColorPicker.css";
 import { HexColorPicker } from "react-colorful";
 import { useContext } from "react";
 import { ColorContext } from "../../contexts/ColorContext";
-
-
 import ColorCell from "../../elements/colorCell/ColorCell";
 
 

@@ -30,7 +30,7 @@ function SandBoxPanel(props) {
 
 		for (let i = 1; i < sandBoxState.totalColors + 1; i++) {
 			
-			let selectedColor = colorState.colorScheme[limitColor(i, colorState.count)].hex.value;
+			let selectedColor = colorState.colorScheme[limitColor(i, colorState.count)];
 			grids.push(
 				<CellGrid key={`cellgridn${i}`}label={`color ${i}`} 
 				selectedColor={selectedColor} />
@@ -41,9 +41,9 @@ function SandBoxPanel(props) {
 
 		if (sandBoxState.component !== 'None') {
 			grids.push(
-				<CellGrid key={`cellgridbg`} label={`bg color`} selectedColor={colorState.colorScheme[0].hex.value}/>
+				<CellGrid key={`cellgridbg`} label={`bg color`} selectedColor={colorState.colorScheme[0]}/>
 			);
-			newPaletteAuxState = { ...newPaletteAuxState, ['bgcolor']: colorState.colorScheme[0].hex.value};
+			newPaletteAuxState = { ...newPaletteAuxState, ['bgcolor']: colorState.colorScheme[0]};
 		}
 
 		if (sandBoxState.text) {

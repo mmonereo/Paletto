@@ -1,0 +1,4 @@
+.palettes-list-content{
+	display: flex;
+	flex-direction: column;
+}

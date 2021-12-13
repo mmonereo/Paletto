@@ -5,6 +5,7 @@ const paletteSchema = new Schema(
 		name:{
 			type: String,
 			trim: true,
+			required: true,
 		},
 
 		colors: [{

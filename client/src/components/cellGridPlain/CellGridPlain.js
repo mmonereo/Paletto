@@ -1,13 +1,13 @@
-import './CellGridPlain.scss';
+import './CellGridPlain.css';
 import ColorCellPlain from '../../elements/colorCellPlain/ColorCellPlain';
 
 function CellGridPlain({palette}){
+	console.log("pallete en cellGridPlain", palette);
 	return(
 		<>
-		
-			<div className="cell-grid" data-selectedcolor={selectedColorState}>
-				{palette?.map((color, index) => {
-					return <ColorCellPlain key={index} color={color.hex.value}/>
+			<div className="cell-grid">
+				{palette?.colors.map((color, index) => {
+					return <ColorCellPlain key={index} color={color}/>
 				})}
 			</div>
 		</>

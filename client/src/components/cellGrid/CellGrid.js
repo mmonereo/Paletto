@@ -10,7 +10,7 @@ function CellGrid({label, selectedColor}) {
 	
 	const { colorState} = useContext(ColorContext);
 
-	const { colorScheme } = colorState;
+	const {colorScheme}  = colorState
 
 	const { sandBoxState, setSandBoxState } = useContext(SandBoxContext);
 
@@ -38,8 +38,8 @@ function CellGrid({label, selectedColor}) {
 		<>	
 			{label ? <p>{label}</p> : null}
 			<div className="cell-grid" data-selectedcolor={selectedColorState}>
-				{colorScheme?.map((color, index) => {
-					return <ColorCell key={index} color={color.hex.value} colorCellOnClick={colorCellOnClick}/>
+				{ colorScheme.length > 0 && colorScheme.map((color, index) => {
+					return <ColorCell key={index} color={color} colorCellOnClick={colorCellOnClick}/>
 				})}
 				{label === 'bg color' ? TEXT_COLORS.map((color, index) => {
 					return <ColorCell key={index} color={color} colorCellOnClick={colorCellOnClick} />

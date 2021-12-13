@@ -23,6 +23,20 @@ router.post('/save', (req, res) => {
 		});
 });
 
+router.get('/favorites/:_id', (req, res) => {
+	const {_id} = req.params;
+	console.log(req.params);
+	console.log("User id en ruta favoritos:", _id);
+	User.findById(_id)
+		.populate('favorites')
+		.then(user => {
+			const {favorites} = user;
+			console.log("paletas favoritas", favorites);
+			res.json({favorites});
+		})
+		.catch(err => console.log(err));
+})
+
 router.get('/browse/latest', (req, res) => {
 
 	Palette.find({})

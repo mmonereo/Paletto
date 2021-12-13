@@ -1,10 +1,10 @@
 import './PalettesList.css';
-import {useState, useEffect, useContext} from 'react';
-import {UserContext} from '../../contexts/UserContext';
+import {useState, useEffect} from 'react';
+import PalettesListItem from '../palettesListItem/PalettesListItem';
 
 function PalettesList({header, palettes}){
 
-	const [palettesState, setPalettesState] = useState(palettes);
+	console.log("palettes en palletesList:", palettes);
 
 	return(
 		<div className="palettes-list">
@@ -12,7 +12,13 @@ function PalettesList({header, palettes}){
 			<div className="palettes-list-header">
 				<h3>{header}</h3>
 			</div>
-			{palettesState.map((palette, index) => )}
+
+			<div className="palettes-list-content">
+				{palettes?.map((palette, index) => <PalettesListItem key={index} palette={palette}/>)}
+			</div>
+
 		</div>
 	);
 }
+
+export default PalettesList;
