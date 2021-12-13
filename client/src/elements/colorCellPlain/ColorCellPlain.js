@@ -1,7 +1,7 @@
 import './ColorCellPlain.css'
 
 
-function CollorCellPlain({ color }) {
+function ColorCellPlain({ color }) {
 	return (
 		
 			<div className="color-cell" data-color={color} style={{ backgroundColor: color }}>
@@ -10,4 +10,4 @@ function CollorCellPlain({ color }) {
 	)
 }
 
-export default CollorCellPlain
+export default ColorCellPlain

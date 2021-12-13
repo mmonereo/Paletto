@@ -1,14 +1,21 @@
 const router = require("express").Router();
 const Palette = require("../models/Palette.model");
+const User = require("../models/User.model");
 
 router.post('/save', (req, res) => {
 
 	const {name, colors, count, mode, tags, creator} = req.body;
 
-	Palette.create({name, colors, count, mode, tags, creator})
+	const formattedTags = tags.split(' ');
+
+	Palette.create({name, colors, count, mode, tags: formattedTags, creator})
 		.then(palette => {
 			console.log(palette);
-			res.json(palette);
+			User.findByIdAndUpdate(creator, { $push: { favorites: palette } }, { new: true })
+				.then(user => {
+					res.json({palette, user});
+				})
+				.catch(err => console.log(err));
 		})
 		.catch(err => {
 			console.log(err);

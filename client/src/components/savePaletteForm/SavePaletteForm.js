@@ -1,21 +1,23 @@
 import './SavePaletteForm.css';
-import {useState, useContext} from 'react';
+import {useState, useContext, useEffect} from 'react';
 import {ColorContext} from '../../contexts/ColorContext';
 import {UserContext} from '../../contexts/UserContext';
 import PalettesService from '../../services/palettes.service';
 
 const myPalettesService = new PalettesService();
 
-function SavePaletteForm(){
+function SavePaletteForm({hideSavePalette}){
 
-	const {ColorState} = useContext(ColorContext);
-	const {UserState} = useContext(UserContext);
+	const {colorState} = useContext(ColorContext);
+	const {userState} = useContext(UserContext);
+
+	useEffect(() => {updateState()} , [colorState]);
 
 	const [paletteState, setPaletteState] = useState({
-		count: ColorState.count,
-		mode: ColorState.mode,
-		colors: ColorState.colorScheme.map(color => color.hex.value),
-		creator: UserState._id
+		count: colorState.count,
+		mode: colorState.mode,
+		colors: colorState.colorScheme.map(color => color.hex.value),
+		creator: userState._id
 	});
 
 	function handleChange(e) {
@@ -25,9 +27,24 @@ function SavePaletteForm(){
 		});
 	}
 
+	function updateState(){
+		setPaletteState({
+			...paletteState,
+			count: colorState.count,
+			mode: colorState.mode,
+			colors: colorState.colorScheme.map(color => color.hex.value)
+		});
+	}
+
 	function submitSavePaletteForm(e) {
 		e.preventDefault();
-		myPalettesService.savePalette(paletteState);
+		myPalettesService.savePalette(paletteState)
+			.then(res => {
+				console.log(res);
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	}
 
 	return(
@@ -43,8 +60,8 @@ function SavePaletteForm(){
 					<label htmlFor="palette-tag-input">Tags</label>
 					<input type="text" id="palette-tag-input" name="tags" onChange={(e) => handleChange(e)} />
 				</div>
-
-				<button type="submit"> {type}</button>
+				<button type="submit">Save</button>
+				<button type="button" onClick={()=> hideSavePalette()}> Close </button>
 			</form>
 		</div>
 	);

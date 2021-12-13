@@ -8,6 +8,7 @@ import ColorSchemeService from '../../services/colorscheme.service';
 import NewColorScheme from '../../components/newColorScheme/NewColorScheme';
 import PaletteNav from '../../components/paletteNav/PaletteNav';
 import SandBox from '../../components/sandBox/SandBox';
+import SavePalettePanel from '../../components/savePalettePanel/SavePalettePanel';
 
 const myColorSchemeService = new ColorSchemeService();
 
@@ -72,7 +73,7 @@ function Main(){
 						<SandBox />
 					</div>
 				</SandBoxContext.Provider>
-
+				{colorState.colorScheme.length > 0 && <SavePalettePanel/>}
 			</ColorContext.Provider>
 		</div>
 	);

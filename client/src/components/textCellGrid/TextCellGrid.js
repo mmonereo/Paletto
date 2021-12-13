@@ -23,7 +23,6 @@ function TextCellGrid() {
 	function colorCellOnClick(e) {
 		const color = e.target.dataset.color
 		setSelectedColorState(color);
-		//updateSandBox()
 	}
 
 	function updateSandBox() {

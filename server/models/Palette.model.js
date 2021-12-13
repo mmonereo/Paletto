@@ -24,11 +24,15 @@ const paletteSchema = new Schema(
 			required: true,
 		},
 
-		tags: [{
-			type: String,
-			trim: true,
-			maxlength: 4,
-		}],
+		tags: {
+
+			type: [{
+				type: String,
+				trim: true,
+			}],
+
+			validate: [arrayLimit, '{PATH} exceeds the limit of {MAX} items'],
+		},
 
 		creator: {
 			type: Schema.Types.ObjectId, ref: "User",
@@ -38,6 +42,10 @@ const paletteSchema = new Schema(
 
 	{ timestamps: true }
 );
+
+function arrayLimit(val) {
+	return val.length <= 4;
+}
 
 const Palette = model("Palette", paletteSchema);
 

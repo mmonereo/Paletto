@@ -8,13 +8,8 @@ class PalettesService {
 		})
 	}
 
-	save = ({ name, colors, count, mode, tags, creator }) => {
-		this.axiosApp.post("/save", { name, colors, count, mode, tags, creator })
-	}
-
-	latest = () => this.axiosApp.get("/login", { username, password })
-	logout = () => this.axiosApp.get("/logout")
-	loggedUser = () => this.axiosApp.get("/loggedin")
+	savePalette = ({ name, colors, count, mode, tags, creator }) =>  this.axiosApp.post("/save", { name, colors, count, mode, tags, creator })
+	
 }
 
 export default PalettesService
