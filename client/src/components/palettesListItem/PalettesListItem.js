@@ -25,7 +25,7 @@ function PalettesListItem({palette}){
 		redirectToMain();
 	}
 
-	console.log("palette en listItem", palette);
+
 	return(
 
 		<button className="palettes-list-item-btn" type="button" onClick={()=>listItemOnClick()}>

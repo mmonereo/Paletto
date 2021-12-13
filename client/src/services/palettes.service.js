@@ -12,6 +12,8 @@ class PalettesService {
 	getFavorites = (_id) => {
 		console.log("idd en palette service: ", _id)
 		return this.axiosApp.get(`/favorites/${_id}`) }
+	getLatest = () => this.axiosApp.get("/browse/latest")
+	addFavorite = (_id, palette) => this.axiosApp.post(`/favorites/${_id}`, { palette })
 	
 }
 

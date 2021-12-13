@@ -2,6 +2,7 @@ import './PaletteNav.css'
 import AuthService from '../../services/auth.service';
 import { useHistory } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
+import { ColorContext } from '../../contexts/ColorContext';
 import { useContext } from 'react';
 
 
@@ -11,6 +12,8 @@ function PaletteNav(){
 
 	const { userState, setUserState } = useContext(UserContext);
 
+	const { setColorState } = useContext(ColorContext);
+
 	const history = useHistory();
 
 	function redirectToLanding() {
@@ -19,6 +22,20 @@ function PaletteNav(){
 
 	function redirectToSocial() {
 		history.push('/social');
+	}
+
+	function redirectToPalettes() {
+		resetColorState();
+		history.push('/palettes');
+	}
+
+	function resetColorState() {
+		setColorState({
+			sourceColor: '#7fb5d8',
+			mode: 'analogic',
+			count: 2,
+			colorScheme: []
+		});
 	}
 
 	function handleLogout(){
@@ -44,6 +61,11 @@ function PaletteNav(){
 
 				<li className="palette-nav-item">
 					<input type="button" className="palette-nav-link" value={ userState ? `${ userState.email }` : null} >
+					</input>
+				</li>
+				
+				<li className="palette-nav-item">
+					<input type="button" className="palette-nav-link" value="Create Palette" onClick={() => redirectToPalettes()}>
 					</input>
 				</li>
 

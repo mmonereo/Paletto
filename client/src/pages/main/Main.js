@@ -14,7 +14,7 @@ const myColorSchemeService = new ColorSchemeService();
 
 function Main(){
 
-	const {setUserState} = useContext(UserContext);
+	const {userState, setUserState} = useContext(UserContext);
 
 	const { colorState, setColorState } = useContext(ColorContext);
 
@@ -52,6 +52,10 @@ function Main(){
 	function schemeOnClick(){
 		requestScheme();
 	}
+	
+	function isFavorite() {
+		return userState.favorites?.includes(colorState._id);
+	}
 
 	return(
 		<div className="main-container">
@@ -68,7 +72,7 @@ function Main(){
 						<SandBox />
 					</div>
 				</SandBoxContext.Provider>
-				{colorState.colorScheme.length > 0 && <SavePalettePanel/>}
+			{(colorState.colorScheme.length > 0 && !isFavorite()) && <SavePalettePanel />}
 			
 		</div>
 	);

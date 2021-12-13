@@ -4,7 +4,7 @@ import PalettesListItem from '../palettesListItem/PalettesListItem';
 
 function PalettesList({header, palettes}){
 
-	console.log("palettes en palletesList:", palettes);
+
 
 	return(
 		<div className="palettes-list">
