@@ -4,11 +4,11 @@ const User = require("../models/User.model");
 
 router.post('/save', (req, res) => {
 
-	const {name, colors, count, mode, tags, creator} = req.body;
+	const {name, sourceColor, colors, count, mode, tags, creator} = req.body;
 
 	const formattedTags = tags.split(' ');
 
-	Palette.create({name, colors, count, mode, tags: formattedTags, creator})
+	Palette.create({ name, sourceColor, colors, count, mode, tags: formattedTags, creator})
 		.then(palette => {
 			User.findByIdAndUpdate(creator, { $push: { favorites: palette } }, { new: true })
 				.then(user => {
@@ -31,7 +31,6 @@ router.get('/favorites/:_id', (req, res) => {
 		.populate('favorites')
 		.then(user => {
 			const {favorites} = user;
-			console.log("paletas favoritas", favorites);
 			res.json({favorites});
 		})
 		.catch(err => console.log(err));

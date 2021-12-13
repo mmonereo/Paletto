@@ -44,6 +44,7 @@ function PaletteNav(){
 			.then(() => {
 				console.log('logged out');
 				setUserState({needsProfile: false});
+				resetColorState();
 				redirectToLanding();
 			})
 			.catch(err => {
@@ -63,7 +64,7 @@ function PaletteNav(){
 					<input type="button" className="palette-nav-link" value={ userState ? `${ userState.email }` : null} >
 					</input>
 				</li>
-				
+
 				<li className="palette-nav-item">
 					<input type="button" className="palette-nav-link" value="Create Palette" onClick={() => redirectToPalettes()}>
 					</input>

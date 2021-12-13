@@ -8,6 +8,12 @@ const paletteSchema = new Schema(
 			required: true,
 		},
 
+		sourceColor: {
+			type: String,
+			trim: true,
+			required: true,
+		},
+
 		colors: [{
 			type: String,
 			required: true,

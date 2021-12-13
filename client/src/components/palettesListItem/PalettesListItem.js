@@ -10,35 +10,36 @@ function PalettesListItem({palette}){
 
 	const history = useHistory();
 
-	function redirectToMain() {
+	function redirectToPalettes() {
 		history.push('/palettes');
 	}
 
 	function listItemOnClick(){
 		setColorState({
-			sourceColor: palette.colors[0],
+			sourceColor: palette.sourceColor,
 			mode: palette.mode,
 			count: palette.count,
 			colorScheme: palette.colors,
 			creator: palette.creator
 		});
-		redirectToMain();
+		redirectToPalettes();
 	}
 
 
 	return(
+		<div className="palettes-list-item">
 
-		<button className="palettes-list-item-btn" type="button" onClick={()=>listItemOnClick()}>
-			<div className="palettes-list-item">
-				<div className="palettes-list-item-header">
-					<h5>{palette.name}</h5>
-				</div>
-				<CellGridPlain palette={palette}/>
+				<button className="palettes-list-item-btn" type="button" onClick={()=>listItemOnClick()}>
+						<div className="palettes-list-item-header">
+							<h5>{palette.name}</h5>
+						</div>
+						<CellGridPlain palette={palette}/>
+				</button>
+
 				<div className="palettes-list-item-tags">
-					{palette.tags.map((tag, index) => <span key={index}>[{tag}] </span>)}
+						{palette.tags.map((tag, index) => <span key={index}>[{tag}] </span>)}
 				</div>
-			</div>
-		</button>
+		</div>
 	);
 }
 

@@ -16,6 +16,7 @@ function SavePaletteForm({hideSavePalette}){
 	const [paletteState, setPaletteState] = useState({
 		count: colorState.count,
 		mode: colorState.mode,
+		sourceColor: colorState.sourceColor,
 		colors: colorState.colorScheme,
 		creator: userState._id
 	});
@@ -32,7 +33,8 @@ function SavePaletteForm({hideSavePalette}){
 			...paletteState,
 			count: colorState.count,
 			mode: colorState.mode,
-			colors: colorState.colorScheme
+			colors: colorState.colorScheme,
+			sourceColor: colorState.sourceColor,
 		});
 	}
 

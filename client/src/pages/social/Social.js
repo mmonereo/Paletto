@@ -23,9 +23,10 @@ function Social() {
 			.catch(err => console.log(err))
 	}, []);
 
-	useEffect(() => { getFavoritePalettes() }, [userState._id]);
-
-	useEffect(() => { getLatestPalettes() }, [userState._id]);
+	useEffect(() => { 
+		getFavoritePalettes()
+		getLatestPalettes()
+	}, [userState._id]);
 
 	function getFavoritePalettes() {
 		myPalettesService.getFavorites(userState._id)

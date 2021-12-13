@@ -15,6 +15,7 @@ function PalettesList({header, palettes}){
 
 			<div className="palettes-list-content">
 				{palettes?.map((palette, index) => <PalettesListItem key={index} palette={palette}/>)}
+				{palettes?.length === 0 && <p>You havent saved any Palettes</p>}
 			</div>
 
 		</div>
