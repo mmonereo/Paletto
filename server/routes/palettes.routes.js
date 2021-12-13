@@ -10,9 +10,9 @@ router.post('/save', (req, res) => {
 
 	Palette.create({name, colors, count, mode, tags: formattedTags, creator})
 		.then(palette => {
-			console.log(palette);
 			User.findByIdAndUpdate(creator, { $push: { favorites: palette } }, { new: true })
 				.then(user => {
+					console.log("paleta creada y añadida a favoritos");
 					res.json({palette, user});
 				})
 				.catch(err => console.log(err));
@@ -26,13 +26,25 @@ router.post('/save', (req, res) => {
 router.get('/favorites/:_id', (req, res) => {
 	const {_id} = req.params;
 	console.log(req.params);
-	console.log("User id en ruta favoritos:", _id);
+	console.log("User id en ruta traer favoritos:", _id);
 	User.findById(_id)
 		.populate('favorites')
 		.then(user => {
 			const {favorites} = user;
 			console.log("paletas favoritas", favorites);
 			res.json({favorites});
+		})
+		.catch(err => console.log(err));
+})
+
+router.post('/favorites/:_id', (req, res) => {
+	const { _id } = req.params;
+	const {palette} = req.body;
+	console.log(req.params);
+	console.log("User id en ruta añadir favoritos:", _id);
+	User.findByIdAndUpdate(_id, { $push: { favorites: palette } }, { new: true })
+		.then(added => {
+			res.json({ added });
 		})
 		.catch(err => console.log(err));
 })
