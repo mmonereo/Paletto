@@ -2,6 +2,8 @@ import './AuthForm.css';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import AuthService from '../../services/auth.service';
+import toast from 'react-hot-toast'
+import { TOAST_POSITIONS, TOAST_STYLES } from "../../constants";
 
 const myAuthService = new AuthService();
 
@@ -23,14 +25,14 @@ function AuthForm({ type, needsProfile }) {
 
 		myAuthService.login(email, password)
 			.then(res => redirectToPalettes())
-			.catch(err => console.log(err));
+			.catch(err => toast.error(err.response.data.errorMessage, { style: TOAST_STYLES }));
 	}
 
 	function signupAuthService(email, password) {
 
 		myAuthService.signup(email, password)
 			.then(res => needsProfile(res.data._id))
-			.catch(err => console.log(err));
+			.catch(err => toast(err.response.data.errorMessage, {style: TOAST_STYLES}));
 	}
 
 	function submitAuthForm(e) {

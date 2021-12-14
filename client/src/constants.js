@@ -41,3 +41,24 @@ export const MOCK_SELECT = [
 		bgcolor: ""
 	}
 ]
+export const TOAST_POSITIONS = {
+	
+		position: "fixed",
+		top: 400,
+		left: 95,
+		zIndex: 2
+
+}
+
+export const TOAST_STYLES = {
+
+	width: "200px",
+	padding: "8px",
+	textAlign: "center",
+	color: "#f7f7f7",
+	background: "#434240",
+	transition: "all 0.5s ease-out",
+	iconTheme: "none",
+	borderRadius: "0px"
+}
+

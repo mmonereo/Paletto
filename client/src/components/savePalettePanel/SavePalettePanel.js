@@ -24,18 +24,20 @@ function SavePalettePanel(props) {
 	}
 
 	return (
-		<div className="save-palette-panel">
+		<>
+			<div className="save-palette-panel">
 
-			<div className="show-form-btn">
-				<button onClick={showSavePalette}>Save Palette</button>
+				<div className="show-form-btn">
+					<button onClick={showSavePalette}>Save Palette</button>
+				</div>
+
+				<div className="copy-btn">
+					<button onClick={copyToClipboard}>Copy Palette</button>
+				</div>
+
 			</div>
-
-			<div className="copy-btn">
-				<button onClick={copyToClipboard}>Copy to Clipboard</button>
-			</div>
-
 			{showSavePaletteState ? <SavePaletteForm hideSavePalette={hideSavePalette} /> : null}
-		</div>
+		</>
 	);
 }
 

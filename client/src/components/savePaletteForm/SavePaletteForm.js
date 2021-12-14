@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from 'react';
 import { ColorContext } from '../../contexts/ColorContext';
 import { UserContext } from '../../contexts/UserContext';
 import PalettesService from '../../services/palettes.service';
+import toast from 'react-hot-toast'
 
 const myPalettesService = new PalettesService();
 
@@ -43,6 +44,7 @@ function SavePaletteForm({ hideSavePalette }) {
 		myPalettesService.savePalette(paletteState)
 			.then(res => {
 				console.log(res);
+				toast('Palette saved');
 			})
 			.catch(err => {
 				console.log(err);
@@ -62,6 +64,7 @@ function SavePaletteForm({ hideSavePalette }) {
 					<label htmlFor="palette-tag-input">Tags</label>
 					<input type="text" id="palette-tag-input" name="tags" onChange={(e) => handleChange(e)} />
 				</div>
+
 				<button type="submit">Save</button>
 				<button type="button" onClick={() => hideSavePalette()}> Close </button>
 			</form>

@@ -61,10 +61,13 @@ function Main(){
 		<div className="main-container">
 
 
-					<div className="main-nav-title">
-						<PaletteNav />
-						<h1>Paletto APP</h1>
-					</div>
+				<div className="main-nav">
+					<PaletteNav />
+				</div>
+
+				<div className="main-header">
+					<h1>Paletto APP</h1>
+				</div>
 					
 				<SandBoxContext.Provider value={{ sandBoxState, setSandBoxState }}>
 					<div className="main-content">

@@ -18,3 +18,15 @@
 	align-items: center;;
 	padding: 0 30px;
 }
+
+.main-header{
+	width: 100%;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+h1{
+	font-size: 1.5em;
+	margin: 0;
+}

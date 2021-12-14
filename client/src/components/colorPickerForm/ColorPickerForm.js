@@ -1,7 +1,7 @@
 import './ColorPickerForm.css';
 import { useContext } from "react";
 import { ColorContext } from "../../contexts/ColorContext";
-import OptionSelect from '../../elements/optionSelect/OptionSelect';
+import OptionSelect from '../../elements/optionSelect/OptionSelect'; 
 import { COUNT_SELECT, MODE_SELECT } from "../../constants";
 
 function ColorPickerForm(){

@@ -1,0 +1,9 @@
+.save-palette-form{
+	margin-top: 5px;
+	margin-left: 30px;
+}
+
+.form-group{
+	display: flex;
+	gap: 50px;
+}

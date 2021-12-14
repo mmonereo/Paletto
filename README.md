@@ -23,11 +23,11 @@
 
 
 ### Check
-
-2. copy to clipboard
-3. generate palette from hex value ddirectly
-3. mock component form default option
-5. loading en palette
+1. toasts
+2. default picture for nav
+3. hover nav buttons
+4. favs logic
+5. loading en social
 
 
 

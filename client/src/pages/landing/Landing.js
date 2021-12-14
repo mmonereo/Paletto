@@ -6,6 +6,7 @@ import AuthForm from '../../components/authForm/AuthForm';
 import UserProfileForm from '../../components/userProfileForm/UserProfileForm';
 
 
+
 function Landing() {
 
 	const [modalState, setModal] = useState({
@@ -35,6 +36,8 @@ function Landing() {
 			_id
 		});
 	}
+
+
 	
 	return (
 		<>

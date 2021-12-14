@@ -1,4 +1,3 @@
-
 import './App.css';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import { useState } from 'react';
@@ -7,6 +6,9 @@ import {UserContext} from './contexts/UserContext';
 import Landing from './pages/landing/Landing';
 import Main from './pages/main/Main';
 import Social from './pages/social/Social';
+import { TOAST_POSITIONS } from './constants'; 
+import { Toaster } from 'react-hot-toast';
+
 
 function App() {
 
@@ -27,11 +29,10 @@ function App() {
 				<Switch>
 					<UserContext.Provider value={{userState, setUserState}}>
 						<ColorContext.Provider value={{ colorState, setColorState }}>
-
+							<Toaster containerStyle={TOAST_POSITIONS} />
 							<Route path="/" exact render={(props) => <Landing {...props}/>} />
 							<Route path="/palettes" component={Main} />
 							<Route path="/social" component={Social} />
-
 						</ColorContext.Provider>
 					</UserContext.Provider>
 				</Switch>

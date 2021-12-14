@@ -82,7 +82,6 @@ router.post("/signup", isLoggedOut, (req, res) => {
 router.post("/login", isLoggedOut, (req, res, next) => {
 	const { email, password } = req.body;
 
-	console.log("en ruta login del server con usuario:", email, password);
 
 	if (!email) {
 		return res
