@@ -4,12 +4,13 @@ import { useHistory } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
 import { ColorContext } from '../../contexts/ColorContext';
 import { useContext } from 'react';
+import defaultAvatar from '../../default-avatar.jpeg';
 
 
 const myAuthService = new AuthService();
 
 function PaletteNav(){
-
+	console.log(defaultAvatar)
 	const { userState, setUserState } = useContext(UserContext);
 
 	const { setColorState } = useContext(ColorContext);
@@ -55,13 +56,13 @@ function PaletteNav(){
 	return(
 		<nav className="palette-nav">
 
-			<div className="palette-nav-img" style={ userState ? {backgroundImage: `url(${userState.profileImg})`} : null}>
+			<div className="palette-nav-img" style={userState ? { backgroundImage: `url(${userState.profileImg})` } : `url(${defaultAvatar})`}>
 			</div>
 
 			<ul className="palette-nav-list">
 
 				<li className="palette-nav-item">
-					<input type="button" className="palette-nav-link" value={ userState ? `${ userState.email }` : null} >
+					<input type="button" className="palette-nav-link" value={userState.username ? `${userState.username}` : `${userState.email}`} >
 					</input>
 				</li>
 

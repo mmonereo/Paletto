@@ -38,9 +38,13 @@
 	background-color: transparent;
 	border: 2px solid #222222;
 	outline: none;
-	cursor: pointer;
+	cursor: default;
 	padding: 5px 22px;
-	color: #fff;
+	color: #f7f7f7;
 	text-transform: capitalize;
-	font-size: 0.90em;
+	font-size: 0.90em;;
+}
+
+.palette-nav-item input:hover{
+	background-color: #222222;
 }

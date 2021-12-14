@@ -12,8 +12,19 @@
 }
 
 .palettes-list-item-tags{
+	display: flex;
+	gap: 5px;
 	margin-left: 8px;
 	margin-right: 8px;
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+.palettes-list-item-tags span{
+	cursor: pointer;
+	display:inline-block;
+	padding-top: 4px;
+} 
+
+.palettes-list-item-tags span:hover{
+	background-color: #525252;
 }

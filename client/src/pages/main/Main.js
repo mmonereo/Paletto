@@ -66,7 +66,7 @@ function Main(){
 				</div>
 
 				<div className="main-header">
-					<h1>Paletto APP</h1>
+					<h1>Paletto App</h1>
 				</div>
 					
 				<SandBoxContext.Provider value={{ sandBoxState, setSandBoxState }}>

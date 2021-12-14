@@ -48,7 +48,7 @@ function Social() {
 	}
 
 	function onClickTag(e, tag) {
-		console.log("clicked")
+
 		myPalettesService.getByTag(tag)
 			.then(res => setByTagState(res.data))
 			.catch(err => console.log(err));
@@ -64,7 +64,7 @@ function Social() {
 			<div className="social-content">
 				<PalettesList header="Your Favorites" palettes={favoritePalettesState} onClickTag={onClickTag}/>
 				<PalettesList header="Latest" palettes={latestPalettesState} onClickTag={onClickTag}/>
-				<PalettesList header="Click on a tag to Search" palettes={byTagState} />
+				<PalettesList header="Click on a tag to Search" palettes={byTagState} onClickTag={onClickTag}/>
 			</div>
 
 		</div>
