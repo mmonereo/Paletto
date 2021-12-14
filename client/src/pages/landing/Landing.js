@@ -41,23 +41,33 @@ function Landing() {
 	
 	return (
 		<>	
-			<AuthNav showModal={showModal}/>
 			<div className="landing-container">
-				<h1>Welcome</h1>
 
-				{modalState.LogIn && 
-				<Modal closeModal={closeModal}> 
-					<AuthForm type="LogIn"/>
-				</Modal>}
+				<div className="landing-nav">
+					<AuthNav showModal={showModal} />
+				</div>
 
-				{modalState.SignUp && 
-					<Modal closeModal={closeModal}>
-						<AuthForm type="SignUp" needsProfile={needsProfile} />
+				<div className="landing-content">
+
+					<h1>Welcome to Paletto App</h1>
+
+					{modalState.LogIn && 
+					<Modal closeModal={closeModal}> 
+						<AuthForm type="LogIn"/>
 					</Modal>}
-				{modalState.needsProfile && 
-					<Modal closeModal={closeModal}>
-						<UserProfileForm type="Create" _id={modalState._id}/>
-					</Modal>}
+
+					{modalState.SignUp && 
+						<Modal closeModal={closeModal}>
+							<AuthForm type="SignUp" needsProfile={needsProfile} />
+						</Modal>}
+
+					{modalState.needsProfile && 
+						<Modal closeModal={closeModal}>
+							<UserProfileForm type="Create" _id={modalState._id}/>
+						</Modal>}
+
+				</div>
+
 			</div>
 		</>
 	);

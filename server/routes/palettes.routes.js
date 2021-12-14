@@ -52,7 +52,7 @@ router.get('/browse/latest', (req, res) => {
 
 	Palette.find({})
 		.sort({createdAt: -1})
-		.limit(10)
+		.limit(15)
 		.then(palettes => res.json(palettes))
 		.catch(err => res.json({err, errMessage: "Error getting latest palettes"}));
 });

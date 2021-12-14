@@ -1,0 +1,13 @@
+.input-scheme input{
+	color: #f7f7f7;
+	background-color: transparent;
+	border: 1px solid rgb(247, 247, 247, 0.5);
+	margin-top: 5px;
+	cursor: pointer;
+	padding: 3px 8px;
+}
+
+.input-scheme input:hover{
+
+	background-color: rgb(118, 118, 118, 0.75);
+}

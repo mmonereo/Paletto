@@ -23,11 +23,14 @@
 
 
 ### Check
-1. toasts
+1. toasts( en social y llamadas api)
 2. default picture for nav
-3. hover nav buttons
+3. empty tag bug
 4. favs logic
 5. loading en social
+6. landing y auth forms styles
+7. searcch by name??
+8. more mockcomponents
 
 
 
