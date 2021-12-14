@@ -2,7 +2,7 @@ import './PalettesList.css';
 import {useState, useEffect} from 'react';
 import PalettesListItem from '../palettesListItem/PalettesListItem';
 
-function PalettesList({header, palettes}){
+function PalettesList({header, palettes, onClickTag}){
 
 
 
@@ -14,8 +14,8 @@ function PalettesList({header, palettes}){
 			</div>
 
 			<div className="palettes-list-content">
-				{palettes?.map((palette, index) => <PalettesListItem key={index} palette={palette}/>)}
-				{palettes?.length === 0 && <p>You havent saved any Palettes</p>}
+				{palettes?.map((palette, index) => <PalettesListItem key={index} palette={palette} onClickTag={onClickTag}/>)}
+				{palettes?.length === 0 && <p>No Palettes found</p>}
 			</div>
 
 		</div>

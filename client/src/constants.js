@@ -22,6 +22,17 @@ export const MOCK_SELECT = [
 	},
 
 	{
+		component: "MockCardGradient",
+		totalColors: 3,
+		color1: "",
+		color2: "",
+		color3: "",
+		text: true,
+		textcolor: "",
+		bgcolor: ""
+	},
+
+	{
 		component: "MockButton",
 		totalColors: 2,
 		color1: "",

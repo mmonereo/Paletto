@@ -10,9 +10,10 @@ class PalettesService {
 
 	savePalette = ({ name, sourceColor, colors, count, mode, tags, creator }) => this.axiosApp.post("/save", { name, sourceColor, colors, count, mode, tags, creator })
 	getFavorites = (_id) => {
-		console.log("idd en palette service: ", _id)
+		console.log("id en palette service: ", _id)
 		return this.axiosApp.get(`/favorites/${_id}`) }
 	getLatest = () => this.axiosApp.get("/browse/latest")
+	getByTag = (tag) => this.axiosApp.get(`/browse/${tag}`)
 	addFavorite = (_id, palette) => this.axiosApp.post(`/favorites/${_id}`, { palette })
 	
 }

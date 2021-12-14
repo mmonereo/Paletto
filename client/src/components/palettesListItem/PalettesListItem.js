@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import {ColorContext} from '../../contexts/ColorContext';
 import CellGridPlain from '../cellGridPlain/CellGridPlain';
 
-function PalettesListItem({palette}){
+function PalettesListItem({ palette, onClickTag}){
 
 	const { setColorState } = useContext(ColorContext);
 
@@ -37,7 +37,7 @@ function PalettesListItem({palette}){
 				</button>
 
 				<div className="palettes-list-item-tags">
-						{palette.tags.map((tag, index) => <span key={index}>[{tag}] </span>)}
+				{palette.tags.map((tag, index) => <span onClick={(e)=>onClickTag(e, tag)} key={index}>[{tag}] </span>)}
 				</div>
 		</div>
 	);

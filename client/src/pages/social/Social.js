@@ -16,6 +16,8 @@ function Social() {
 
 	const [latestPalettesState, setLatestPalettesState] = useState([]);
 
+	const [byTagState, setByTagState] = useState([]);
+
 	useEffect(() => {
 		//CR
 		loggedUser()
@@ -45,6 +47,13 @@ function Social() {
 		setUserState({ ...user });
 	}
 
+	function onClickTag(e, tag) {
+		console.log("clicked")
+		myPalettesService.getByTag(tag)
+			.then(res => setByTagState(res.data))
+			.catch(err => console.log(err));
+	}
+
 	return (
 		<div className="social-container">
 
@@ -53,8 +62,9 @@ function Social() {
 			</div>
 
 			<div className="social-content">
-				<PalettesList header="Your Favorites" palettes={favoritePalettesState} />
-				<PalettesList header="Latest" palettes={latestPalettesState} />
+				<PalettesList header="Your Favorites" palettes={favoritePalettesState} onClickTag={onClickTag}/>
+				<PalettesList header="Latest" palettes={latestPalettesState} onClickTag={onClickTag}/>
+				<PalettesList header="Click on a tag to Search" palettes={byTagState} />
 			</div>
 
 		</div>
