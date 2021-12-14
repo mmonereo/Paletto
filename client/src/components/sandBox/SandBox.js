@@ -16,16 +16,18 @@ function SandBox(){
 
 
 	return(
-		<>
-			<div className="sandbox" style={{backgroundColor: sandBoxState.bgcolor}}>
-				{sandBoxState.component === 'MockCard' ? <MockCard /> : null}
-				{sandBoxState.component === 'MockCardGradient' ? <MockCardGradient /> : null}
+		<>	
+			<div className="sand-and-form">
+				<div className="sandbox" style={{backgroundColor: sandBoxState.bgcolor}}>
+					{sandBoxState.component === 'MockCard' ? <MockCard /> : null}
+					{sandBoxState.component === 'MockCardGradient' ? <MockCardGradient /> : null}
+					
+				</div>
+				{colorState.colorScheme.length ? <SandBoxForm /> : null}
 			</div>
-			
 			{colorState.colorScheme.length ? 
 				<div className="sandbox-panel">
 					<SandBoxPanel />
-					<SandBoxForm />
 				</div> : null}
 		</>
 	);

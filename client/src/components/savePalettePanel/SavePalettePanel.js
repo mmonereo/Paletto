@@ -23,7 +23,6 @@ function SavePalettePanel(props) {
 		navigator.clipboard.writeText(copyText);
 	}
 
-
 	return (
 		<div className="save-palette-panel">
 

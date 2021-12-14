@@ -1,8 +1,15 @@
+.sand-and-form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
 .sandbox{
 	width: 600px;
 	height: 400px;
-	border: 3px solid rgb(0, 0, 0);
-	border-radius: 5%;
+	border: 1px solid rgb(0, 0, 0);
 	margin-left: 100px;
 	margin-right: 50px;
 	display: flex;
@@ -10,4 +17,5 @@
 	justify-content: center;
 	align-items: center;
 	padding: 30px;
+	background-color: #F7F7F7
 }

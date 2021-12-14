@@ -37,7 +37,7 @@ function TextCellGrid() {
 			<p>text color</p>
 			<div className="cell-grid" data-selectedcolor={selectedColorState}>
 				{TEXT_COLORS?.map((color, index) => {
-					return <ColorCell key={index} color={color} colorCellOnClick={colorCellOnClick} />
+					return <ColorCell key={index} color={color} colorCellOnClick={colorCellOnClick} isText/>
 				})}
 			</div>
 		</>
