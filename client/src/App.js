@@ -6,7 +6,7 @@ import {UserContext} from './contexts/UserContext';
 import Landing from './pages/landing/Landing';
 import Main from './pages/main/Main';
 import Social from './pages/social/Social';
-import { TOAST_POSITIONS } from './constants'; 
+import { TOAST_OPTIONS } from './constants'; 
 import { Toaster } from 'react-hot-toast';
 
 
@@ -30,7 +30,7 @@ function App() {
 					<UserContext.Provider value={{userState, setUserState}}>
 						<ColorContext.Provider value={{ colorState, setColorState }}>
 
-							<Toaster containerStyle={TOAST_POSITIONS} />
+							<Toaster toastOptions={TOAST_OPTIONS} />
 							<Route path="/" exact render={(props) => <Landing {...props}/>} />
 							<Route path="/palettes" component={Main} />
 							<Route path="/social" component={Social} />

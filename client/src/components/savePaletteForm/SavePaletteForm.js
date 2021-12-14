@@ -44,7 +44,7 @@ function SavePaletteForm({ hideSavePalette }) {
 		myPalettesService.savePalette(paletteState)
 			.then(res => {
 				console.log(res);
-				toast('Palette saved');
+				toast('palette saved');
 			})
 			.catch(err => {
 				console.log(err);

@@ -9,7 +9,7 @@
 .sandbox{
 	width: 600px;
 	height: 400px;
-	border: 1px solid #F7F7F7;
+	border: 1px solid rgb(247, 247, 247, 0.5);
 	margin-left: 100px;
 	margin-right: 50px;
 	display: flex;
