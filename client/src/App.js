@@ -29,10 +29,12 @@ function App() {
 				<Switch>
 					<UserContext.Provider value={{userState, setUserState}}>
 						<ColorContext.Provider value={{ colorState, setColorState }}>
+
 							<Toaster containerStyle={TOAST_POSITIONS} />
 							<Route path="/" exact render={(props) => <Landing {...props}/>} />
 							<Route path="/palettes" component={Main} />
 							<Route path="/social" component={Social} />
+
 						</ColorContext.Provider>
 					</UserContext.Provider>
 				</Switch>

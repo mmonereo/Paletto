@@ -4,17 +4,17 @@ import { ColorContext } from '../../contexts/ColorContext';
 import SavePaletteForm from '../savePaletteForm/SavePaletteForm';
 
 
-function SavePalettePanel(props) {
+function SavePalettePanel() {
 
 	const {colorState} = useContext(ColorContext);
 
 	const [showSavePaletteState, setShowSavePaletteState] = useState(false);
 
-	function showSavePalette(e) {
+	function showSavePalette() {
 		setShowSavePaletteState(true);
 	}
 
-	function hideSavePalette(e) {
+	function hideSavePalette() {
 		setShowSavePaletteState(false);
 	}
 

@@ -40,7 +40,7 @@ function Landing() {
 
 	
 	return (
-		<>
+		<>	
 			<AuthNav showModal={showModal}/>
 			<div className="landing-container">
 				<h1>Welcome</h1>

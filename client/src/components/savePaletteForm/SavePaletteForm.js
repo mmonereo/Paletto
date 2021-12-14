@@ -55,18 +55,24 @@ function SavePaletteForm({ hideSavePalette }) {
 		<div className="save-palette-form">
 			<form onSubmit={(e) => submitSavePaletteForm(e)}>
 
-				<div className="form-group">
-					<label htmlFor="palette-name-input">Name</label>
-					<input type="text" id="name-input" name="name" onChange={(e) => handleChange(e)} />
+				<div className="form-fields">
+
+					<div className="form-group">
+						<label htmlFor="palette-name-input">Name</label>
+						<input type="text" id="name-input" name="name" onChange={(e) => handleChange(e)} />
+					</div>
+
+					<div className="form-group">
+						<label htmlFor="palette-tag-input">Tags</label>
+						<input type="text" id="palette-tag-input" name="tags" onChange={(e) => handleChange(e)} />
+					</div>
+					
 				</div>
 
-				<div className="form-group">
-					<label htmlFor="palette-tag-input">Tags</label>
-					<input type="text" id="palette-tag-input" name="tags" onChange={(e) => handleChange(e)} />
+				<div className="save-palette-form-btns">
+					<button type="submit">Save</button>
+					<button type="button" onClick={() => hideSavePalette()}> Close </button>
 				</div>
-
-				<button type="submit">Save</button>
-				<button type="button" onClick={() => hideSavePalette()}> Close </button>
 			</form>
 		</div>
 	);

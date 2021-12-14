@@ -1,9 +1,47 @@
 .save-palette-form{
-	margin-top: 5px;
+	margin-top: 10px;
 	margin-left: 30px;
+	width: 300px;
+	display: flex;
+
+}
+
+.form-fields{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 }
 
 .form-group{
 	display: flex;
 	gap: 50px;
+	gap: 50px;
+}
+
+.save-palette-form-btns{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.save-palette-form-btns button{
+	background-color: transparent;
+	border: 1px solid #f7f7f7;
+	padding: 5px;
+	margin-top: 15px;
+}
+
+.form-group label{
+
+	float: left;
+	clear: left;
+	width: 50px;
+	text-align: right;
+}
+
+.form-group input {
+	background-color: #434240;
+	float: left;
+	color: #f7f7f7;
+	border: none;
 }
