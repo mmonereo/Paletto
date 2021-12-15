@@ -1,20 +1,18 @@
-.mock-card{
+.mock-card-gradient{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
-	border: 2px solid #ccc;
 	width: 400px;
 }
 
-.mock-card-header{
-	border: 2px solid #ccc;
+.mock-card-gradient-header{
 	padding: 5px;
 }
 
 
-.mock-card-body{
+.mock-card-gradient-body{
 	padding: 10px;
 	text-justify: inter-word;
 }

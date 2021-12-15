@@ -1,0 +1,12 @@
+.mock-bootstrap-button{
+
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid transparent;
+    padding: 12px 24px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+
+}

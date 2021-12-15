@@ -38,7 +38,17 @@ export const MOCK_SELECT = [
 		totalColors: 2,
 		color1: "",
 		color2: "",
-		text: false,
+		text: true,
+		textcolor: "",
+		bgcolor: ""
+	},
+
+	{
+		component: "MockBootstrapButton",
+		totalColors: 1,
+		color1: "",
+		text: true,
+		textcolor: "",
 		bgcolor: ""
 	}
 ]
