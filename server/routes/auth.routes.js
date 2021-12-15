@@ -15,7 +15,7 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/loggedin", (req, res) => {
-	req.session.currentUser ? res.json(req.session.currentUser) : res.status(401).json({ code: 401, message: 'Unauthorized' })
+	req.session.currentUser ? res.json(req.session.currentUser) : res.status(401).json({ errorMessage: 'Unauthorized'});
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
@@ -45,7 +45,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
 	User.findOne({ email }).then((found) => {
 		// If the user is found, send the message email is taken
 		if (found) {
-			return res.status(400).json({ errorMessage: "email already taken." });
+			return res.status(400).json({ errorMessage: "email already taken" });
 		}
 
 		// if user is not found, create a new user - start with hashing the password

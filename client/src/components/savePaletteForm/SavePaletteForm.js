@@ -46,10 +46,11 @@ function SavePaletteForm({ hideSavePalette }) {
 		myPalettesService.savePalette(paletteState)
 			.then(res => {
 				console.log(res);
-				toast('palette saved');
+				hideSavePalette();
+				toast.success('palette saved');
 			})
 			.catch(err => {
-				console.log(err);
+				toast.error('error saving palette');
 			});
 	}
 
@@ -72,7 +73,7 @@ function SavePaletteForm({ hideSavePalette }) {
 				</div>
 
 				<div className="save-palette-form-btns">
-					<button type="submit">Save</button>
+					<button type="submit" >Save</button>
 					<button type="button" onClick={() => hideSavePalette()}> Close </button>
 				</div>
 			</form>

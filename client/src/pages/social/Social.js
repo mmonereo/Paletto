@@ -3,8 +3,10 @@ import PaletteNav from '../../components/paletteNav/PaletteNav';
 import PalettesList from '../../components/palettesList/PalettesList';
 import { UserContext } from '../../contexts/UserContext';
 import { useEffect, useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import PalettesService from '../../services/palettes.service';
 import loggedUser from '../../utils/loggedUser';
+import toast from 'react-hot-toast';
 
 const myPalettesService = new PalettesService();
 
@@ -18,29 +20,38 @@ function Social() {
 
 	const [byTagState, setByTagState] = useState([]);
 
+	const history = useHistory();
+
 	useEffect(() => {
 		//CR
 		loggedUser()
 			.then(currentUser => setCurrentUser(currentUser.data))
-			.catch(err => console.log(err))
+			.catch(err => {
+				redirectToLanding();
+				toast.error(err.response.data.errorMessage);
+			})
 	}, []);
 
 	
 	useEffect(() => { 
 		getFavoritePalettes()
 		getLatestPalettes()
-	}, [userState._id]);
+	}, []);
+
+	function redirectToLanding() {
+		history.push('/');
+	}
 
 	function getFavoritePalettes() {
 		myPalettesService.getFavorites(userState._id)
 			.then(res => setFavoritePalettesState(res.data.favorites))
-			.catch(err => console.log(err));
+			.catch(err => toast.error("error getting favorites"));
 	}
 
 	function getLatestPalettes() {
 		myPalettesService.getLatest()
 			.then(res => setLatestPalettesState(res.data))
-			.catch(err => console.log(err));
+			.catch(err => toast.error("error getting latest palettes"));
 	}
 
 	function setCurrentUser(user) {

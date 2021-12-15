@@ -9,6 +9,8 @@ import NewColorScheme from '../../components/newColorScheme/NewColorScheme';
 import PaletteNav from '../../components/paletteNav/PaletteNav';
 import SandBox from '../../components/sandBox/SandBox';
 import SavePalettePanel from '../../components/savePalettePanel/SavePalettePanel';
+import { useHistory } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const myColorSchemeService = new ColorSchemeService();
 
@@ -18,12 +20,21 @@ function Main(){
 
 	const { colorState, setColorState } = useContext(ColorContext);
 
+	const history = useHistory();
+
 	useEffect(() => {
 		//CR
 		loggedUser()
 			.then(currentUser => setCurrentUser(currentUser.data))
-			.catch(err => console.log(err))
+			.catch(err => {
+				redirectToLanding();
+				toast.error(err.response.data.errorMessage);
+			})
 	}, []);
+
+	function redirectToLanding() {
+		history.push('/');
+	}
 
 	function setCurrentUser(user){
 		console.log("currentUser in main", user)

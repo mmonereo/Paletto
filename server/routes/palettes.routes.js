@@ -14,7 +14,7 @@ router.post('/save', (req, res) => {
 				.then(user => res.json({palette, user}))
 				.catch(err => console.log(err));
 		})
-		.catch(err => res.json({err, errMessage: "Error saving palette"}));
+		.catch(err => res.status(400).json({errMessage: "Error saving palette"}));
 });
 
 router.get('/favorites/:_id', (req, res) => {
@@ -27,7 +27,7 @@ router.get('/favorites/:_id', (req, res) => {
 			const {favorites} = user;
 			res.json({favorites});
 		})
-		.catch(err => console.log(err));
+		.catch(err => res.status(400).json({ errMessage: "Error getting favorite Palettes" }));
 })
 
 router.post('/favorites/:_id', (req, res) => {
@@ -39,7 +39,7 @@ router.post('/favorites/:_id', (req, res) => {
 		.then(added => {
 			res.json({ added });
 		})
-		.catch(err => console.log(err));
+		.catch(err => res.status(400).json({ errMessage: "Error adding favorite" }));
 })
 
 router.get('/browse/latest', (req, res) => {
@@ -48,7 +48,7 @@ router.get('/browse/latest', (req, res) => {
 		.sort({createdAt: -1})
 		.limit(15)
 		.then(palettes => res.json(palettes))
-		.catch(err => res.json({err, errMessage: "Error getting latest palettes"}));
+		.catch(err => res.status(400).json({errMessage: "Error getting latest palettes"}));
 });
 
 router.get('/browse/:tag', (req, res) => {
@@ -57,7 +57,7 @@ router.get('/browse/:tag', (req, res) => {
 
 	Palette.find({tags: tag})
 		.then(palettes => res.json(palettes))
-		.catch(err => res.json({err, errMessage: "Error getting palettes by tag"}));
+		.catch(err => res.status(400).json({ errMessage: "Error getting palettes by tag"}));
 });
 
 

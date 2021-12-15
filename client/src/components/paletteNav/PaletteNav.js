@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
 import { ColorContext } from '../../contexts/ColorContext';
 import { useContext } from 'react';
-import defaultAvatar from '../../default-avatar.jpeg';
+import defaultAvatar from '../../default-avatar.svg';
 
 
 
@@ -57,7 +57,7 @@ function PaletteNav(){
 	return(
 		<nav className="palette-nav">
 
-			<div className="palette-nav-img" style={userState ? { backgroundImage: `url(${userState.profileImg})` } : `url(${defaultAvatar})`}>
+			<div className="palette-nav-img" style={{ backgroundImage: userState.profileImg ? `url(${userState.profileImg})`  : `url(${defaultAvatar})`}}>
 			</div> 
 
 

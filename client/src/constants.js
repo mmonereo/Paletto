@@ -56,18 +56,18 @@ export const MOCK_SELECT = [
 export const TOAST_OPTIONS = {
 	
 		className: '',
-		duration: 4000,
-		position: "bottom-center",
-		incon: '',
+		duration: 3000,
+		position: "bottom-left",
+
 
 		style: {
 
 			width: "200px",
 			padding: "8px",
 			textAlign: "center",
-			color: "#f7f7f7",
+			color: "#fff",
 			border: "1px solid #f7f7f7",
-			background: "#434240",
+			background: "#919191",
 			transition: "all 0.5s ease-out",
 			iconTheme: "none",
 			borderRadius: "0px"
@@ -81,7 +81,8 @@ export const TOAST_OPTIONS = {
 
 	success: {
 		duration: 3000,
-		position: "top-center",
+		position: "bottom-left",
+		icon: '🎨'
 	}
 
 }

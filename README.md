@@ -23,11 +23,8 @@
 
 
 ### Check
-1. toasts( en social y llamadas api)
-2. default picture for nav
-4. favs logic
+1. toasts en savepalette sin nombre
 5. loading en social
-7. protect social and palettees
 8. more mockcomponents
 
 
