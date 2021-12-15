@@ -11,16 +11,10 @@ router.post('/save', (req, res) => {
 	Palette.create({ name, sourceColor, colors, count, mode, tags: formattedTags, creator})
 		.then(palette => {
 			User.findByIdAndUpdate(creator, { $push: { favorites: palette } }, { new: true })
-				.then(user => {
-					console.log("paleta creada y añadida a favoritos");
-					res.json({palette, user});
-				})
+				.then(user => res.json({palette, user}))
 				.catch(err => console.log(err));
 		})
-		.catch(err => {
-			console.log(err);
-			res.json({err, errMessage: "Error saving palette"});
-		});
+		.catch(err => res.json({err, errMessage: "Error saving palette"}));
 });
 
 router.get('/favorites/:_id', (req, res) => {

@@ -42,7 +42,7 @@ function Main(){
 		myColorSchemeService.getOneScheme(sourceColor.substring(1), mode, count)
 			.then(response => {
 				const {colors} = response.data;
-				setColorState({ ...colorState, colorScheme: colors.map(color => color.hex.value) });
+				setColorState({ ...colorState, colorScheme: colors.map(color => color.hex.value), _id: ""});
 			})
 			.catch(error => {
 				console.log(error);

@@ -20,7 +20,8 @@ function App() {
 		sourceColor: '#314820',
 		mode: 'analogic',
 		count: 2,
-		colorScheme: []
+		colorScheme: [],
+		_id: ''
 	});
 
 	return (

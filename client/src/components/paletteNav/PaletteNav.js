@@ -7,10 +7,12 @@ import { useContext } from 'react';
 import defaultAvatar from '../../default-avatar.jpeg';
 
 
+
+
 const myAuthService = new AuthService();
 
 function PaletteNav(){
-	console.log(defaultAvatar)
+
 	const { userState, setUserState } = useContext(UserContext);
 
 	const { setColorState } = useContext(ColorContext);
@@ -56,7 +58,8 @@ function PaletteNav(){
 		<nav className="palette-nav">
 
 			<div className="palette-nav-img" style={userState ? { backgroundImage: `url(${userState.profileImg})` } : `url(${defaultAvatar})`}>
-			</div>
+			</div> 
+
 
 			<ul className="palette-nav-list">
 

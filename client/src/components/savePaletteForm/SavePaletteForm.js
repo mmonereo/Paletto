@@ -12,7 +12,9 @@ function SavePaletteForm({ hideSavePalette }) {
 	const { colorState } = useContext(ColorContext);
 	const { userState } = useContext(UserContext);
 
-	useEffect(() => { updateState() }, [colorState]);
+	useEffect(() => { updateState()}, [colorState]);
+
+
 
 	const [paletteState, setPaletteState] = useState({
 		count: colorState.count,

@@ -11,7 +11,7 @@ const myPalettesService = new PalettesService();
 function Social() {
 
 	const { userState, setUserState } = useContext(UserContext);
-
+	
 	const [favoritePalettesState, setFavoritePalettesState] = useState([]);
 
 	const [latestPalettesState, setLatestPalettesState] = useState([]);
@@ -25,6 +25,7 @@ function Social() {
 			.catch(err => console.log(err))
 	}, []);
 
+	
 	useEffect(() => { 
 		getFavoritePalettes()
 		getLatestPalettes()

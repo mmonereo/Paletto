@@ -5,6 +5,7 @@ import { ColorContext } from "../../contexts/ColorContext";
 import ColorCell from "../../elements/colorCell/ColorCell";
 
 
+
 function ColorPicker() {
 
 	const {colorState, setColorState} = useContext(ColorContext);
@@ -21,7 +22,7 @@ function ColorPicker() {
 
 			<div className="sample-picker">
 				<ColorCell color={sourceColor} />
-				<span>Current color is {sourceColor}</span>
+				<span>Current color is {sourceColor} </span>
 			</div>
 
 		</div>

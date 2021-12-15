@@ -20,7 +20,8 @@ function PalettesListItem({ palette, onClickTag}){
 			mode: palette.mode,
 			count: palette.count,
 			colorScheme: palette.colors,
-			creator: palette.creator
+			creator: palette.creator,
+			_id: palette._id
 		});
 		redirectToPalettes();
 	}
