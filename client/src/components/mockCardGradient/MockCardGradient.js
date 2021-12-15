@@ -1,6 +1,6 @@
 import './MockCardGradient.css';
 import { useContext } from 'react';
-import RoundButton from '../../elements/roundButton/RoundButton';
+import RoundButton from '../../elements/mockButton/MockButton';
 import { SandBoxContext } from '../../contexts/SandBoxContext';
 
 

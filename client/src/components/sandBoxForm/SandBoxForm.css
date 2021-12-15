@@ -1,0 +1,9 @@
+.sandbox-form{
+	margin-top: 50px;
+
+}
+
+.sandbox-form form{
+	display: flex;
+	flex-direction: column;
+}

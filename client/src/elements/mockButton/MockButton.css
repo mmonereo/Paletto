@@ -1,0 +1,12 @@
+.mock-button{
+  border: 2px solid;
+  cursor: pointer;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s ease;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+}

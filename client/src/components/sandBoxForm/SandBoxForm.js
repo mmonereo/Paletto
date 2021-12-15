@@ -21,7 +21,7 @@ function SandBoxForm(){
 		<div className="sandbox-form">
 			<form>
 
-				<label htmlFor="mock-select" >Choose Mock</label>
+				<label htmlFor="mock-select" >choose mock </label>
 				<select id="mock-select" name="mode" onChange={(e) => handleChange(e)}>
 					{MOCK_SELECT.map((elm, index) =>  <OptionSelect key={index} value={`${elm.component}`}/>)}
 				</select>

@@ -36,7 +36,6 @@ function SandBoxPanel(props) {
 				selectedColor={selectedColor} />
 			);
 			newPaletteAuxState = { ...newPaletteAuxState, [`color${i}`]: selectedColor};
-			console.log("selected color", selectedColor)
 		}
 
 		if (sandBoxState.component !== 'None') {
@@ -57,7 +56,7 @@ function SandBoxPanel(props) {
 
 	
 	return(
-		<div className="sandbox-panel-colors">
+		<div className="sandbox-panel-colors" style={sandBoxState.component === "None" ? { visibility: "hidden" } : {visibility: "visible"}}>
 			{gridState?.map(grid => grid)}
 		</div>
 	);

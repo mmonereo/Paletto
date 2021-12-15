@@ -2,6 +2,7 @@ import './SavePalettePanel.css';
 import { useState, useContext } from 'react';
 import { ColorContext } from '../../contexts/ColorContext';
 import SavePaletteForm from '../savePaletteForm/SavePaletteForm';
+import toast from 'react-hot-toast';
 
 
 function SavePalettePanel() {
@@ -21,6 +22,7 @@ function SavePalettePanel() {
 	function copyToClipboard() {
 		const copyText = colorState.colorScheme.join(' ');
 		navigator.clipboard.writeText(copyText);
+		toast('Copied to clipboard');
 	}
 
 	return (

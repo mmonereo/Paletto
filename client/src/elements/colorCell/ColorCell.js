@@ -1,10 +1,10 @@
 import './ColorCell.css'
 
 
-function CollorCell({color, colorCellOnClick, isText}){
+function CollorCell({color, colorCellOnClick}){
 	return (
 		<button  onClick={(e)=> colorCellOnClick(e)}>
-			<div className="color-cell" data-color={color} style={isText ? { borderColor: '#fff' } : null} style={{ backgroundColor: color }}>
+			<div className="color-cell" data-color={color} style={{ backgroundColor: color }}>
 			</div>
 		</button>
 	)

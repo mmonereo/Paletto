@@ -10,7 +10,7 @@
 
 .mock-card-header{
 	border: 2px solid #ccc;
-	padding: 5px;
+	padding: 5px 25px !important
 }
 
 

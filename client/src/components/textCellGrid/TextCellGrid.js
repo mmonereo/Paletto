@@ -3,9 +3,9 @@ import './TextCellGrid.css';
 import { useContext, useState, useEffect } from "react";
 import { SandBoxContext } from '../../contexts/SandBoxContext';
 import ColorCell from '../../elements/colorCell/ColorCell';
-import { TEXT_COLORS } from '../../constants';
+import {TEXT_COLORS} from '../../constants';
 
-function TextCellGrid() {
+function TextCellGrid({type}) {
 
 
 	const { sandBoxState, setSandBoxState } = useContext(SandBoxContext);
@@ -26,7 +26,6 @@ function TextCellGrid() {
 	}
 
 	function updateSandBox() {
-		console.log("sandboxstate actualizado desde cellgrid")
 		setSandBoxState({ ...sandBoxState, [key]: selectedColorState })
 	}
 
@@ -37,7 +36,7 @@ function TextCellGrid() {
 			<p>text color</p>
 			<div className="cell-grid" data-selectedcolor={selectedColorState}>
 				{TEXT_COLORS?.map((color, index) => {
-					return <ColorCell key={index} color={color} colorCellOnClick={colorCellOnClick} isText/>
+					return <ColorCell key={index} color={color} colorCellOnClick={colorCellOnClick}/>
 				})}
 			</div>
 		</>

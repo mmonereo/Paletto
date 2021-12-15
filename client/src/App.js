@@ -17,7 +17,7 @@ function App() {
 	});
 
 	const [colorState, setColorState] = useState({
-		sourceColor: '#7fb5d8',
+		sourceColor: '#314820',
 		mode: 'analogic',
 		count: 2,
 		colorScheme: []
