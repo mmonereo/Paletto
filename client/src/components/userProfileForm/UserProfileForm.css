@@ -1,0 +1,32 @@
+.profile-form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.profile-form-title h2{
+	font-size: 1.5rem;
+}
+
+.profile-form-buttons{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	gap: 20px;
+	margin-top: 15px;
+}
+
+.profile-form-buttons button{
+	background-color: transparent;
+	border: 1px solid rgb(247, 247, 247, 0.5);
+	margin-top: 5px;
+	cursor: pointer;
+	padding: 3px 8px;
+}
+
+.profile-form-buttons button:hover{
+	background-color: rgb(118, 118, 118, 0.75);
+}

@@ -8,7 +8,7 @@ function ColorPickerForm(){
 
 	
 	const { colorState, setColorState } = useContext(ColorContext);
-
+ 
 
 	function handleChange(e) {
 		let { name, value } = e.currentTarget;

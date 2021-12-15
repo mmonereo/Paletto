@@ -32,7 +32,7 @@ function PaletteNav(){
 
 	function resetColorState() {
 		setColorState({
-			sourceColor: '#7fb5d8',
+			sourceColor: '#314820',
 			mode: 'analogic',
 			count: 2,
 			colorScheme: []
@@ -43,7 +43,6 @@ function PaletteNav(){
 		
 		myAuthService.logout()
 			.then(() => {
-				console.log('logged out');
 				setUserState({needsProfile: false});
 				resetColorState();
 				redirectToLanding();

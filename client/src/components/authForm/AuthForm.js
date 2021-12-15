@@ -57,23 +57,30 @@ function AuthForm({ type, needsProfile }) {
 
 	return (
 		<>
-				<div className="auth-form-title">
-					<h2>{type === "SignUp" ? "Create Account" : "Please Log In"}</h2>
-				</div>
-				<form onSubmit={(e) => submitAuthForm(e)}>
+			<div className='auth-form'>
 
-					<div className="form-group">
-						<label htmlFor="email-input">Email</label>
-						<input type="email" id="email-input" name="email" data-action={type} onChange={(e) => handleChange(e)} />
+					<div className="auth-form-title">
+					<h2>{type === "SignUp" ? "Sign up to Paletto" : "Log in to Paletto"}</h2>
 					</div>
 
-					<div className="form-group">
-						<label htmlFor="password-input">Password</label>
-						<input type="password" id="password-input" name="password" autoComplete="on" data-action={type} onChange={(e) => handleChange(e)} />
-					</div>
+					<form>
 
-					<button type="submit"> {type}</button>
-				</form>
+						<div className="form-group">
+							<label htmlFor="email-input">Email</label>
+							<input type="email" id="email-input" name="email" data-action={type} onChange={(e) => handleChange(e)} />
+						</div>
+
+						<div className="form-group">
+							<label htmlFor="password-input">Password</label>
+							<input type="password" id="password-input" name="password" autoComplete="on" data-action={type} onChange={(e) => handleChange(e)} />
+						</div>
+
+						
+					</form>
+
+			</div>
+
+			<button className="auth-form-submit" type="submit" onClick={(e)=>submitAuthForm(e)}> {type}</button>
 		</>
 	);
 }

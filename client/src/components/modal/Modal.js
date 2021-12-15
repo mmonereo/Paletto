@@ -5,7 +5,7 @@ function Modal({ closeModal, children}) {
 		<div className="modal-wrapper">
 			<div className="modal-content">
 					{children}
-					<button type="button" id={children.props.type} onClick={(e) => closeModal(e)}>Close</button>
+					{children.props.type !== "Create" && <button type="button" className="modal-close" id={children.props.type} onClick={(e) => closeModal(e)}>Close</button>}
 			</div>
 		</div>
 	);

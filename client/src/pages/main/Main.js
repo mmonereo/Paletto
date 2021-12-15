@@ -53,9 +53,6 @@ function Main(){
 		requestScheme();
 	}
 	
-	function isFavorite() {
-		return userState.favorites?.includes(colorState._id);
-	}
 
 	return(
 		<div className="main-container">
@@ -75,7 +72,7 @@ function Main(){
 						<SandBox />
 					</div>
 				</SandBoxContext.Provider>
-			{(colorState.colorScheme.length > 0 && !isFavorite()) && <SavePalettePanel />}
+			{(colorState.colorScheme.length > 0) && <SavePalettePanel />}
 			
 		</div>
 	);

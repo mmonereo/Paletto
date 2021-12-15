@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router';
 import UploadService from '../../services/upload.service';
 import UserService from '../../services/user.service';
+import toast from 'react-hot-toast';
 
 const myUploadService = new UploadService();
 
@@ -52,6 +53,7 @@ function UserProfileForm({ type, _id }) {
 				setprofileFormState({
 					...profileFormState, profileImg: cloudinary_url, uploaded: true
 				})
+				toast.success('Image Uploaded!');
 			})
 			.catch(err => console.log(err));
 	}
@@ -63,7 +65,8 @@ function UserProfileForm({ type, _id }) {
 
 
 	return (
-		<>
+		<div className="profile-form">
+
 				<div className="profile-form-title">
 					<h2>{type === "Create" ? "Create your Profile" : "Update your Profile"}</h2>
 				</div>
@@ -79,10 +82,13 @@ function UserProfileForm({ type, _id }) {
 						<input type="file" id="imageData-input" name="imageData" onChange={(e) => handleImgChange(e)} />
 					</div>
 
-					<button type="submit">{type} Profile</button>
-					<button type="button" id={type} onClick={() => redirectToPalettes()}>Dismiss</button>
+					<div className="profile-form-buttons">
+						<button type="submit">{type} Profile</button>
+						<button type="button" id={type} onClick={() => redirectToPalettes()}>Dismiss</button>
+					</div>
 				</form>
-		</>
+
+		</div>
 	);
 }
 

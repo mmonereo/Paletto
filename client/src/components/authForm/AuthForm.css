@@ -1,0 +1,29 @@
+.auth-form{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.auth-form-title h2{
+	font-size: 1.5rem;
+}
+
+.form-group{
+	margin-bottom: 5px;
+}
+
+.auth-form-submit{
+	position: relative;
+	left: 358px;
+	top: 10px; 
+	background-color: transparent;
+	border: 1px solid rgb(247, 247, 247, 0.5);
+	margin-top: 5px;
+	cursor: pointer;
+	padding: 3px 8px;
+}
+
+.auth-form-submit:hover{
+	background-color: rgb(118, 118, 118, 0.75);
+}
