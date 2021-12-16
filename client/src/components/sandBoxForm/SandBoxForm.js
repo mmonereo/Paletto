@@ -7,7 +7,7 @@ import OptionSelect from '../../elements/optionSelect/OptionSelect';
 
 function SandBoxForm(){
 
-	const { setSandBoxState} = useContext(SandBoxContext);
+	const { setSandBoxState } = useContext(SandBoxContext);
 
 
 	function handleChange(e) {

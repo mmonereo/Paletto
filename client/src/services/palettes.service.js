@@ -3,7 +3,7 @@ import axios from 'axios'
 class PalettesService {
 	constructor() {
 		this.axiosApp = axios.create({
-			baseURL: 'http://localhost:5000/api/palettes',
+			baseURL: `${process.env.REACT_APP_BASE_URL}/palettes`,
 			withCredentials: true
 		})
 	}

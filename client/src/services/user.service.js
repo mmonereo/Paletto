@@ -5,7 +5,7 @@ class UserService {
 
 	constructor(_id) {
 		this.axiosApp = axios.create({
-			baseURL: `http://localhost:5000/api/user/${_id}`,
+			baseURL: `${process.env.REACT_APP_BASE_URL}/user/${_id}`,
 			withCredentials: true
 		})
 		this._id = _id;

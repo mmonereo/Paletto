@@ -24,6 +24,7 @@
 
 ### Check
 1. toasts en savepalette sin nombre
+2. picture for landing?
 5. loading en social
 8. more mockcomponents
 
