@@ -7,6 +7,7 @@ import MockCard from '../mockCard/MockCard';
 import MockCardGradient from '../mockCardGradient/MockCardGradient';
 import MockButton from '../../elements/mockButton/MockButton';
 import MockBootstrapButton from '../../elements/mockBootstrapButton/MockBootstrapButton';
+import MockCardBootstrap from '../mockCardBootstrap/MockCardBootstrap';
 
 import './SandBox.css';
 
@@ -25,6 +26,7 @@ function SandBox(){
 					{sandBoxState.component === 'MockCardGradient' ? <MockCardGradient /> : null}
 					{sandBoxState.component === 'MockButton' ? <MockButton text='Button'/> : null}
 					{sandBoxState.component === 'MockBootstrapButton' ? <MockBootstrapButton text='Button'/> : null}
+					{sandBoxState.component === 'MockCardBootstrap' ? <MockCardBootstrap/> : null}
 					
 				</div>
 				{colorState.colorScheme.length ? <SandBoxForm /> : null}

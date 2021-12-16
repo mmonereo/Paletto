@@ -50,6 +50,17 @@ export const MOCK_SELECT = [
 		text: true,
 		textcolor: "",
 		bgcolor: ""
+	},
+
+	{
+		component: "MockCardBootstrap",
+		totalColors: 3,
+		color1: "",
+		color2: "",
+		color3: "",
+		text: true,
+		textcolor: "",
+		bgcolor: ""
 	}
 ]
 

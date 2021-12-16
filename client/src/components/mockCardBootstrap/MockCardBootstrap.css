@@ -1,0 +1,32 @@
+.card{
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+  font-weight: 400;
+  font-family: -apple-  system,BlinkMacSystemFont,"SegoeUI",Roboto,"Helvetica Neue",Arial,sans- serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  width: 350px;
+}
+
+.card-body{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1.25rem;
+}
+
+.card-title {
+	border: 1px solid rgba(0,0,0,.125);
+	border-radius: 0.25rem;
+	margin-bottom: 0.75rem;
+	font-weight: bolder;
+	font-size: 1.25rem;
+	padding: 12px 24px;
+}
+
+.card-text{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
