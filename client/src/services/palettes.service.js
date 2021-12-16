@@ -13,6 +13,7 @@ class PalettesService {
 	getLatest = () => this.axiosApp.get("/browse/latest")
 	getByTag = (tag) => this.axiosApp.get(`/browse/${tag}`)
 	addFavorite = (_id, palette) => this.axiosApp.post(`/favorites/${_id}`, { palette })
+	removeFavorite = (_id, palette) => this.axiosApp.post(`/favorites/remove/${_id}`, { palette })
 	
 }
 

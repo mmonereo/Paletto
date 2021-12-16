@@ -42,11 +42,24 @@ router.post('/favorites/:_id', (req, res) => {
 		.catch(err => res.status(400).json({ errMessage: "Error adding favorite" }));
 })
 
+router.post('/favorites/remove/:_id', (req, res) => {
+	const { _id } = req.params;
+	const {palette} = req.body;
+	console.log(req.params);
+	console.log("User id en ruta quitar favoritos:", _id);
+	console.log("Palette id en ruta quitar favoritos:", palette);
+	User.findByIdAndUpdate(_id, { $pull: { favorites: palette } }, { new: true })
+		.then(deleted => {
+			res.json({ deleted });
+		})
+		.catch(err => res.status(400).json({ errMessage: "Error removing favorite" }));
+})
+
 router.get('/browse/latest', (req, res) => {
 
 	Palette.find({})
 		.sort({createdAt: -1})
-		.limit(15)
+		.limit(20)
 		.then(palettes => res.json(palettes))
 		.catch(err => res.status(400).json({errMessage: "Error getting latest palettes"}));
 });

@@ -23,8 +23,11 @@
 
 
 ### Check
-1. toasts en savepalette sin nombre
-2. picture for landing?
+1. toasts en savepalette sin
+2. social refresh bug
+3. remove favs
+4. create palette from palettes colorstate bug
+5. auth enter submit
 8. more mockcomponents
 
 

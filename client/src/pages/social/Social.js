@@ -44,7 +44,10 @@ function Social() {
 
 	function getFavoritePalettes() {
 		myPalettesService.getFavorites(userState._id)
-			.then(res => setFavoritePalettesState(res.data.favorites))
+			.then(res => {
+				setFavoritePalettesState(res.data.favorites)
+				console.log(res.data.favorites)
+			})
 			.catch(err => toast.error("error getting favorites"));
 	}
 

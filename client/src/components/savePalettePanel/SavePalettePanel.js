@@ -52,6 +52,20 @@ function SavePalettePanel() {
 			});
 	}
 
+	function removeFavOnClick(){
+		const userId = userState._id;
+		const palette = colorState._id;
+
+		myPalettesService.removeFavorite(userId, palette)
+			.then(res => {
+				console.log(res);
+				toast('Removed from favorites');
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	}
+
 	function getFavoritePalettes() {
 		myPalettesService.getFavorites(userState._id)
 			.then(res => {
@@ -84,6 +98,11 @@ function SavePalettePanel() {
 					<div className="add-fav-btn">
 						<button onClick={addFavOnClick}>Save Palette</button>
 					</div>}
+
+{/* 				{(colorState._id && favPalettesState.isFav && !favPalettesState.loading) &&
+					<div className="add-fav-btn">
+						<button onClick={removeFavOnClick}> Remove Palette</button>
+					</div>} */}
 
 				<div className="copy-btn">
 					<button onClick={copyToClipboard}>Copy Palette</button>
