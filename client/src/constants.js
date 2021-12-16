@@ -2,7 +2,7 @@
 
 export const COUNT_SELECT = ['2', '3', '4', '5', '6', '7', '8']
 export const MODE_SELECT = ["analogic", "analogic-complement", "complement", "monochrome"]
-export const TEXT_COLORS = ["#000000", "#4D4D4F", "#C3C4C6", "#F7F7F7"]
+export const TEXT_COLORS = ["#000000", "#313131", "#4D4D4F", "#C3C4C6", "#F7F7F7"]
 export const BG_COLORS = ["#222222", "#C3C4C6"]
 export const MOCK_SELECT = [
 	
@@ -61,6 +61,17 @@ export const MOCK_SELECT = [
 		text: true,
 		textcolor: "",
 		bgcolor: ""
+	},
+
+	{
+		component: "MockLogInForm",
+		totalColors: 3,
+		color1: "",
+		color2: "",
+		color3: "",
+		text: true,
+		textcolor: "",
+		bgcolor: ""
 	}
 ]
 
@@ -78,7 +89,7 @@ export const TOAST_OPTIONS = {
 			textAlign: "center",
 			color: "#fff",
 			border: "1px solid #f7f7f7",
-			background: "#919191",
+			background: "#7f7e7e",
 			transition: "all 0.5s ease-out",
 			iconTheme: "none",
 			borderRadius: "0px"

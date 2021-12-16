@@ -27,6 +27,12 @@
 	cursor: pointer;
 	display:inline-block;
 	padding-top: 4px;
+}
+
+.palettes-list-item-tags p{
+	display:inline-block;
+	padding-top: 4px;
+	margin: 0;
 } 
 
 .palettes-list-item-tags span:hover{

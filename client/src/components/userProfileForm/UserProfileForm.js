@@ -6,6 +6,7 @@ import UploadService from '../../services/upload.service';
 import UserService from '../../services/user.service';
 import toast from 'react-hot-toast';
 
+
 const myUploadService = new UploadService();
 
 function UserProfileForm({ type, _id }) {
@@ -87,7 +88,6 @@ function UserProfileForm({ type, _id }) {
 						<button type="button" id={type} onClick={() => redirectToPalettes()}>Dismiss</button>
 					</div>
 				</form>
-
 		</div>
 	);
 }

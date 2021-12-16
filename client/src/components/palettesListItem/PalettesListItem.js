@@ -27,6 +27,7 @@ function PalettesListItem({ palette, onClickTag}){
 	}
 
 
+
 	return(
 		<div className="palettes-list-item">
 
@@ -38,7 +39,8 @@ function PalettesListItem({ palette, onClickTag}){
 				</button>
 
 				<div className="palettes-list-item-tags">
-					{palette.tags.map((tag, index) => <span onClick={(e)=>onClickTag(e, tag)} key={index}>[{tag}] </span>)}
+					{palette.tags.length ? palette.tags.map((tag, index) => <span onClick={(e)=>onClickTag(e, tag)} key={index}>[{tag}] </span>)
+					: <p>No tags</p>}
 				</div>
 		</div>
 	);

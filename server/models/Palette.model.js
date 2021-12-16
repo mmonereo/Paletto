@@ -5,7 +5,7 @@ const paletteSchema = new Schema(
 		name:{
 			type: String,
 			trim: true,
-			required: true,
+			required: [true, "Palette name is required"],
 		},
 
 		sourceColor: {

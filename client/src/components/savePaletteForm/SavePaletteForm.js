@@ -50,7 +50,7 @@ function SavePaletteForm({ hideSavePalette }) {
 				toast.success('palette saved');
 			})
 			.catch(err => {
-				toast.error('error saving palette');
+				toast.error('palette name required');
 			});
 	}
 

@@ -1,0 +1,21 @@
+.mock-auth-form{
+	width: 400px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid;
+}
+
+.mock-auth-form-title{
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.mock-auth-form-btn{
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+}

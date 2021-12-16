@@ -22,7 +22,9 @@ function MockCardBootstrap(){
 	const buttonStyle = {
 		backgroundColor: sandBoxState.color2,
 		color: sandBoxState.textcolor,
-		borderColor: sandBoxState.color3
+		borderColor: sandBoxState.color3,
+		padding: '6px 12px',
+		fontSize: '0.75rem',
 	}
 
 	return(

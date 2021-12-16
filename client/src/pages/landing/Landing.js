@@ -4,6 +4,7 @@ import AuthNav from '../../components/authNav/AuthNav';
 import Modal from '../../components/modal/Modal';
 import AuthForm from '../../components/authForm/AuthForm';
 import UserProfileForm from '../../components/userProfileForm/UserProfileForm';
+import landingImg from '../.././landing.jpg';
 
 
 
@@ -50,6 +51,10 @@ function Landing() {
 				<div className="landing-content">
 
 					<h1>Welcome to Paletto App</h1>
+
+					<div className='landing-img' style={{ backgroundImage:`url(${landingImg})` }}>
+
+					</div>
 
 					{modalState.LogIn && 
 					<Modal closeModal={closeModal}> 

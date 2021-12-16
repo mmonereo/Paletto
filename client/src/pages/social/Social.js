@@ -25,7 +25,7 @@ function Social() {
 	useEffect(() => {
 		//CR
 		loggedUser()
-			.then(currentUser => setCurrentUser(currentUser.data))
+			.then(currentUser => {setCurrentUser(currentUser.data)})
 			.catch(err => {
 				redirectToLanding();
 				toast.error(err.response.data.errorMessage);
@@ -36,7 +36,7 @@ function Social() {
 	useEffect(() => { 
 		getFavoritePalettes()
 		getLatestPalettes()
-	}, []);
+	}, [userState._id]);
 
 	function redirectToLanding() {
 		history.push('/');
@@ -55,7 +55,6 @@ function Social() {
 	}
 
 	function setCurrentUser(user) {
-		console.log("currentUser in social", user)
 		setUserState({ ...user });
 	}
 

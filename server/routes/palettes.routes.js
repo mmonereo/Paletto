@@ -6,7 +6,7 @@ router.post('/save', (req, res) => {
 
 	const {name, sourceColor, colors, count, mode, tags, creator} = req.body;
 
-	const formattedTags = tags?.split(' ');
+	const formattedTags = tags?.split(' ').filter(tag => tag.length > 0);
 
 	Palette.create({ name, sourceColor, colors, count, mode, tags: formattedTags, creator})
 		.then(palette => {

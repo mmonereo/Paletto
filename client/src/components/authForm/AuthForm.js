@@ -63,7 +63,7 @@ function AuthForm({ type, needsProfile }) {
 					<h2>{type === "SignUp" ? "Sign up to Paletto" : "Log in to Paletto"}</h2>
 					</div>
 
-					<form>
+					<form onSubmit={(e) => submitAuthForm(e)}>
 
 						<div className="form-group">
 							<label htmlFor="email-input">Email</label>

@@ -37,7 +37,6 @@ function Main(){
 	}
 
 	function setCurrentUser(user){
-		console.log("currentUser in main", user)
 		setUserState({ ...user });
 	}
 

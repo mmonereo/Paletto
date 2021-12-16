@@ -1,5 +1,4 @@
 import './PalettesList.css';
-import {useState, useEffect} from 'react';
 import PalettesListItem from '../palettesListItem/PalettesListItem';
 
 function PalettesList({header, palettes, onClickTag}){
