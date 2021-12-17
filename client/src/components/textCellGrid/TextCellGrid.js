@@ -5,7 +5,7 @@ import { SandBoxContext } from '../../contexts/SandBoxContext';
 import ColorCell from '../../elements/colorCell/ColorCell';
 import {TEXT_COLORS} from '../../constants';
 
-function TextCellGrid({type}) {
+function TextCellGrid() {
 
 
 	const { sandBoxState, setSandBoxState } = useContext(SandBoxContext);
@@ -36,7 +36,7 @@ function TextCellGrid({type}) {
 			<p>text color</p>
 			<div className="cell-grid" data-selectedcolor={selectedColorState}>
 				{TEXT_COLORS?.map((color, index) => {
-					return <ColorCell key={index} color={color} colorCellOnClick={colorCellOnClick}/>
+					return <ColorCell key={index} color={color} hover={true} colorCellOnClick={colorCellOnClick}/>
 				})}
 			</div>
 		</>

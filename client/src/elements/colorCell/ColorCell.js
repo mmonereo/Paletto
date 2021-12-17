@@ -1,10 +1,10 @@
 import './ColorCell.css'
 
 
-function CollorCell({color, colorCellOnClick}){
+function CollorCell({color, colorCellOnClick, hover}){
 	return (
 		<button  onClick={(e)=> colorCellOnClick(e)}>
-			<div className="color-cell" data-color={color} style={{ backgroundColor: color }}>
+			<div className={hover ? "color-cell cell-hover" : "color-cell"} data-color={color} style={{ backgroundColor: color }}>
 			</div>
 		</button>
 	)

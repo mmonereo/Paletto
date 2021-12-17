@@ -28,6 +28,7 @@
 3. remove favs
 4. create palette from palettes colorstate bug
 5. auth enter submit
+6. colorcell picked color feedback (hover or different border)
 8. more mockcomponents
 
 

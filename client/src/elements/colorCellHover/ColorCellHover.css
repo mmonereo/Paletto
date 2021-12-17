@@ -15,6 +15,6 @@ button{
 	outline: inherit;
 }
 
-.cell-hover:hover{
+.color-cell:hover{
 	border: 1px solid #777777;
 }

@@ -39,10 +39,10 @@ function CellGrid({label, selectedColor}) {
 			{label ? <p>{label}</p> : null}
 			<div className="cell-grid" data-selectedcolor={selectedColorState}>
 				{ colorScheme.length > 0 && colorScheme.map((color, index) => {
-					return <ColorCell key={index} color={color} colorCellOnClick={colorCellOnClick}/>
+					return <ColorCell key={index} color={color} hover={true} colorCellOnClick={colorCellOnClick}/>
 				})}
 				{label === 'bg color' ? BG_COLORS.map((color, index) => {
-					return <ColorCell key={index} color={color} colorCellOnClick={colorCellOnClick} />
+					return <ColorCell key={index} color={color} hover={true} colorCellOnClick={colorCellOnClick} />
 				}) : null}
 			</div>
 		</>
