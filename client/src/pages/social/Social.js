@@ -20,12 +20,17 @@ function Social() {
 
 	const [byTagState, setByTagState] = useState([]);
 
+	const [userCalled, setUserCalled] = useState(false);
+
 	const history = useHistory();
 
 	useEffect(() => {
 		//CR
 		loggedUser()
-			.then(currentUser => {setCurrentUser(currentUser.data)})
+			.then(currentUser => {
+				setCurrentUser(currentUser.data)
+				setUserCalled(true)
+			})
 			.catch(err => {
 				redirectToLanding();
 				toast.error(err.response.data.errorMessage);
@@ -34,27 +39,32 @@ function Social() {
 
 	
 	useEffect(() => { 
+	
 		getFavoritePalettes()
 		getLatestPalettes()
-	}, [userState._id]);
+
+	}, [userCalled]);
 
 	function redirectToLanding() {
 		history.push('/');
 	}
 
 	function getFavoritePalettes() {
-		myPalettesService.getFavorites(userState._id)
-			.then(res => {
-				setFavoritePalettesState(res.data.favorites)
-				console.log(res.data.favorites)
-			})
-			.catch(err => toast.error("error getting favorites"));
+
+			myPalettesService.getFavorites(userState._id)
+				.then(res => {
+					setFavoritePalettesState(res.data.favorites)
+					console.log(res.data.favorites)
+				})
+				.catch(err => toast.error("error getting favorites"));
+		
 	}
 
 	function getLatestPalettes() {
-		myPalettesService.getLatest()
-			.then(res => setLatestPalettesState(res.data))
-			.catch(err => toast.error("error getting latest palettes"));
+
+			myPalettesService.getLatest()
+				.then(res => setLatestPalettesState(res.data))
+				.catch(err => toast.error("error getting latest palettes"));
 	}
 
 	function setCurrentUser(user) {
