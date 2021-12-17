@@ -15,6 +15,12 @@ function SandBoxPanel(props) {
 
 	useEffect(() => {
 		countGrids()
+		return () => {
+			setSandBoxState({
+				component: "None",
+				totalColors: 0
+			})			
+		}
 	}, [sandBoxState.component, colorState.colorScheme]);
 
 	function limitColor(i, max){
