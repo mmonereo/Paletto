@@ -1,35 +1,25 @@
 # Paletto
 
-## Routes
+## :art: Description
 
-### Palettes routes
+SPA color palette generator with a sandbox to test color combinations on the fly. Users can select among a handful of mock components like cards or buttons, apply the generated palette and switch between colors.
 
-1. get /palettes/browse/ shows all palettes
-2. get /palettes/browse/:tag get palettes with a specific tag
-3. get /palettes/:id/ get a palette
-4. post /palettes/new saves a new palette created by user
-5. post /palettes/add adds a new palette by another user to favorites
+Users can also save, share their favorite palettes and search palettes by tag.
 
-### Auth routes
-1. get /auth/loggedin/ checks if user is logged in
-2. get /auth/logout/ logs out user
-3. post /auth/login/ logs in user
-4. post /auth/signup/ signs up user
+![](https://i.imgur.com/Qac3dx2.png)
 
 
-## Views
-1. / landing page login etc
-2. /palettes/new color picker and generate palette
 
+## :nut_and_bolt: Hot it works
 
-### Check
-1. toasts en savepalette sin
-2. social refresh bug
-3. remove favs
-4. create palette from palettes colorstate bug
-5. auth enter submit
-6. colorcell picked color feedback (hover or different border)
-8. more mockcomponents
+The front-end uses React while the back-end is an Express API REST.
+All components are function based taking addvantage of React Hooks. 
+Palette generation is done through calls to the The Color API (https://www.thecolorapi.com/).
+
+## How to use
+
+You can try it out here https://paletto.herokuapp.com/
+
 
 
 
