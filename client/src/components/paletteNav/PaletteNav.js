@@ -60,13 +60,12 @@ function PaletteNav(){
 			<div className="palette-nav-img" style={{ backgroundImage: userState.profileImg ? `url(${userState.profileImg})`  : `url(${defaultAvatar})`}}>
 			</div> 
 
+			<div className="palette-nav-header">
+				<h1>Paletto</h1>
+			</div>
+
 
 			<ul className="palette-nav-list">
-
-				<li className="palette-nav-item">
-					<input type="button" className="palette-nav-link" value={userState.username ? `${userState.username}` : `${userState.email}`} >
-					</input>
-				</li>
 
 				<li className="palette-nav-item">
 					<input type="button" className="palette-nav-link" value="Create Palette" onClick={() => redirectToPalettes()}>

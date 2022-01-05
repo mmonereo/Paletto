@@ -59,6 +59,10 @@ function Main(){
 			});
 	}
 
+	function displaySavePanel(){
+		return colorState.colorScheme.length > 0;
+	}
+
 	function schemeOnClick(){
 		requestScheme();
 	}
@@ -72,17 +76,13 @@ function Main(){
 					<PaletteNav />
 				</div>
 
-				<div className="main-header">
-					<h1>Paletto App</h1>
-				</div>
-					
 				<SandBoxContext.Provider value={{ sandBoxState, setSandBoxState }}>
 					<div className="main-content">
-						<NewColorScheme schemeOnClick={schemeOnClick} />
+					<NewColorScheme schemeOnClick={schemeOnClick} displaySavePanel={displaySavePanel}/>
 						<SandBox />
 					</div>
 				</SandBoxContext.Provider>
-			{(colorState.colorScheme.length > 0) && <SavePalettePanel />}
+			
 			
 		</div>
 	);

@@ -29,7 +29,6 @@ function SandBox(){
 					{sandBoxState.component === 'MockBootstrapButton' ? <MockBootstrapButton text='Button'/> : null}
 					{sandBoxState.component === 'MockCardBootstrap' ? <MockCardBootstrap/> : null}
 					{sandBoxState.component === 'MockLogInForm' ? <MockLogInForm/> : null}
-					
 				</div>
 				{colorState.colorScheme.length ? <SandBoxForm /> : null}
 			</div>

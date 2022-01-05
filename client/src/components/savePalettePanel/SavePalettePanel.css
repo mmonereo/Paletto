@@ -1,7 +1,5 @@
 .save-palette-panel{
 	display: flex;
-	margin-top: 10px;
-	margin-left: 30px;
-	width: 300px;
+	margin-top: 15px;
 	justify-content: space-between;
 }

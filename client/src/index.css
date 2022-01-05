@@ -5,15 +5,18 @@
 	font:  300 1em/1.5 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
+html, body, #app, #app>div {
+	height: 100%;
+}
+
 body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
 	width: 100%;
-	min-height: 100vh;
+	background-color: #222222;
 }
 
 
