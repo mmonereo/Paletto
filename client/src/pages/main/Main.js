@@ -8,7 +8,6 @@ import ColorSchemeService from '../../services/colorscheme.service';
 import NewColorScheme from '../../components/newColorScheme/NewColorScheme';
 import PaletteNav from '../../components/paletteNav/PaletteNav';
 import SandBox from '../../components/sandBox/SandBox';
-import SavePalettePanel from '../../components/savePalettePanel/SavePalettePanel';
 import { useHistory } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
@@ -16,7 +15,7 @@ const myColorSchemeService = new ColorSchemeService();
 
 function Main(){
 
-	const {userState, setUserState} = useContext(UserContext);
+	const {setUserState} = useContext(UserContext);
 
 	const { colorState, setColorState } = useContext(ColorContext);
 

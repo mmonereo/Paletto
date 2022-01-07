@@ -9,26 +9,36 @@
 	background-color: rgba(0,0,0,0.4); 
 }
 
+.close-icon{
+	align-self: flex-end;
+	font-size: 1.2rem;
+	border: 1px solid rgb(247, 247, 247, 0.5);
+	padding: 1px 10px;
+	cursor: pointer;
+}
+
+.close-icon:hover{
+	background-color: rgb(118, 118, 118, 0.75);
+}
 
 .modal-content {
+	display: flex;
+	flex-direction: column;
 	align-items: center;
 	background-color: #595858;
 	margin: 15% auto;
-	padding: 40px;
+	padding: 30px 40px;
 	border: 1px solid #888;
 	width: 60%; 
-	
 }
 
 .modal-close{
-	position: relative;
-	left: 415px;
-	top: 10px;
+
 	background-color: transparent;
 	border: 1px solid rgb(247, 247, 247, 0.5);
 	margin-top: 5px;
 	cursor: pointer;
-	padding: 3px 8px;
+	padding: 3px 18px;
 }
 
 .modal-close:hover{

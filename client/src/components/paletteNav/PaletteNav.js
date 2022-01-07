@@ -61,7 +61,7 @@ function PaletteNav(){
 			</div> 
 
 			<div className="palette-nav-header">
-				<h1>Paletto</h1>
+				<h1>Paletto App</h1>
 			</div>
 
 

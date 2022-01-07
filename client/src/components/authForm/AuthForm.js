@@ -1,5 +1,5 @@
 import './AuthForm.css';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router';
 import AuthService from '../../services/auth.service';
 import toast from 'react-hot-toast'
@@ -9,11 +9,26 @@ const myAuthService = new AuthService();
 
 function AuthForm({ type, needsProfile }) {
 
+	useEffect(() => {
+		const listener = event => {
+			if (event.code === "Enter" || event.code === "NumpadEnter") {
+				triggerSubmitClick();
+			}
+		};
+		document.addEventListener("keydown", listener);
+		return () => {
+			document.removeEventListener("keydown", listener);
+		};
+	}, [])
+
+
 	const [authFormState, setAuthFormState ] = useState({
 		email: '',
 		password: '',
 		action: '',
 	});
+
+	const formBtn = useRef(null);
 
 	const history = useHistory();
 
@@ -44,7 +59,7 @@ function AuthForm({ type, needsProfile }) {
 		}
 		else if (action === 'SignUp') {
 			signupAuthService(email, password);
-		}
+		} 
 	}
 
 	function handleChange(e) {
@@ -55,6 +70,10 @@ function AuthForm({ type, needsProfile }) {
 		});
 	}
 
+	function triggerSubmitClick() {
+		formBtn.current.click();
+	}
+
 	return (
 		<>
 			<div className='auth-form'>
@@ -63,7 +82,7 @@ function AuthForm({ type, needsProfile }) {
 					<h2>{type === "SignUp" ? "Sign up to Paletto" : "Log in to Paletto"}</h2>
 					</div>
 
-					<form onSubmit={(e) => submitAuthForm(e)}>
+					<form>
 
 						<div className="form-group">
 							<label htmlFor="email-input">Email</label>
@@ -80,7 +99,7 @@ function AuthForm({ type, needsProfile }) {
 
 			</div>
 
-			<button className="auth-form-submit" type="submit" onClick={(e)=>submitAuthForm(e)}> {type}</button>
+			<button className="auth-form-submit" type="submit" onClick={(e)=>submitAuthForm(e)} ref={formBtn}> {type}</button>
 		</>
 	);
 }

@@ -14,14 +14,13 @@
 }
 
 .auth-form-submit{
-	position: relative;
-	left: 358px;
-	top: 10px; 
+
 	background-color: transparent;
 	border: 1px solid rgb(247, 247, 247, 0.5);
-	margin-top: 5px;
+	margin-top: 10px;
+	margin-left: 10px;
 	cursor: pointer;
-	padding: 3px 8px;
+	padding: 3px 18px;
 }
 
 .auth-form-submit:hover{
