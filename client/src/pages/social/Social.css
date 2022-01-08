@@ -10,3 +10,15 @@
 	display: flex;
 	justify-content: space-around;
 }
+
+::-webkit-scrollbar{
+	width: 10px;
+	background-color: #434240; 
+}
+
+::-webkit-scrollbar-thumb{
+	height: 2px;
+	background-color: rgb(118, 118, 118, 0.75);
+}
+ 
+ 

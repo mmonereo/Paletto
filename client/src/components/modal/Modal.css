@@ -15,6 +15,7 @@
 	border: 1px solid rgb(247, 247, 247, 0.5);
 	padding: 1px 10px;
 	cursor: pointer;
+	font-weight: 500;
 }
 
 .close-icon:hover{

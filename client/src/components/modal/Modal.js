@@ -4,9 +4,7 @@ function Modal({ closeModal, children}) {
 	return(
 		<div className="modal-wrapper">
 			<div className="modal-content">
-				<div className='close-icon' id={children.props.type} onClick={(e) => closeModal(e)}>
-							<span>X</span>
-					</div>
+				{children.props.type !== "Create" && <button className='close-icon' id={children.props.type} onClick={(e) => closeModal(e)}>X</button>}
 					{children}
 			</div>
 		</div>
